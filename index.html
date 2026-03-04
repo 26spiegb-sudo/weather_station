@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <title>Ben Spiegler | Engineering Portfolio</title>
     <style>
-        /* Reset default margins */
+        /* Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         body { font-family: Arial, sans-serif; line-height: 1.6; background: #f4f4f4; color: #333; }
 
         /* Navigation */
@@ -20,14 +19,12 @@
             top: 0;
             z-index: 1000;
         }
-
         nav a {
             color: white;
             text-decoration: none;
             margin: 0 15px;
             font-weight: bold;
         }
-
         nav a:hover { color: #00bfff; }
 
         /* Sections */
@@ -39,7 +36,6 @@
             border-radius: 8px;
             margin-top: 30px;
         }
-
         h1, h2 { margin-bottom: 20px; }
         h2 { border-bottom: 2px solid #ddd; padding-bottom: 10px; }
 
@@ -50,7 +46,6 @@
             gap: 20px;
             margin-top: 20px;
         }
-
         .card {
             background: #fafafa;
             border-radius: 8px;
@@ -58,13 +53,11 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             transition: transform 0.2s, box-shadow 0.2s;
         }
-
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 16px rgba(0,0,0,0.2);
         }
-
-        .card img {
+        .card img, .card video {
             width: 100%;
             border-radius: 5px;
             margin-bottom: 10px;
@@ -85,6 +78,7 @@
 </head>
 <body>
 
+<!-- Navigation -->
 <nav>
     <a href="#about">About Me</a>
     <a href="#projects">Projects</a>
@@ -92,6 +86,7 @@
     <a href="#contact">Contact</a>
 </nav>
 
+<!-- About Me -->
 <section id="about">
     <h1>Ben Spiegler</h1>
     <h2>About Me</h2>
@@ -101,35 +96,66 @@
     </p>
 </section>
 
+<!-- Projects -->
 <section id="projects">
     <h2>Projects</h2>
     <div class="projects">
+
+        <!-- Project 1 -->
         <div class="card">
-            <img src="yourimage1.jpg" alt="Project 1">
-            <h3>Project Title 1</h3>
-            <p>Brief description of what you built and what you learned.</p>
+            <img src="IMG_1632.jpg" alt="Robot Arm Prototype">
+            <h3>Robot Arm Prototype</h3>
+            <p>Designed and 3D printed a robot arm in Fusion 360. Learned motion control and assembly.</p>
         </div>
+
+        <!-- Project 2 with video -->
         <div class="card">
-            <img src="yourimage2.jpg" alt="Project 2">
-            <h3>Project Title 2</h3>
-            <p>Brief description of this project. Include tools, skills, results.</p>
+            <video controls>
+                <source src="IMG_1634.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <h3>Robot Arm in Action</h3>
+            <p>Video showing the arm picking up objects. Learned motor calibration and programming.</p>
         </div>
-        <!-- Add more cards as needed -->
+
+        <!-- Project 3 -->
+        <div class="card">
+            <img src="sensor_test.png" alt="Sensor Test">
+            <h3>Sensor Test Setup</h3>
+            <p>Tested different Arduino sensors. Learned serial communication and debugging techniques.</p>
+        </div>
+
+        <!-- Arduino Code -->
+        <div class="card">
+            <h3>Arduino Code</h3>
+            <p><a href="spiegler_combinedblink_code.ino" download>Download Arduino Blink Code</a></p>
+        </div>
+
+        <!-- Fusion 360 / STL Files -->
+        <div class="card">
+            <h3>3D Models</h3>
+            <p><a href="first_test_print_Ben.f3d" download>Download Fusion 360 File</a></p>
+        </div>
+
     </div>
 </section>
 
+<!-- Photos -->
 <section id="photos">
     <h2>Photos</h2>
-    <img src="yourimage3.jpg" alt="Extra Photo">
-    <img src="yourimage4.jpg" alt="Extra Photo">
+    <img src="IMG_1652.jpg" alt="Project Assembly">
+    <img src="IMG_1656.jpg" alt="Final Robot">
+    <!-- Add more photos as needed -->
 </section>
 
+<!-- Contact -->
 <section id="contact">
     <h2>Contact</h2>
     <p>Email: youremail@example.com</p>
     <p>Phone: (555) 555-5555</p>
 </section>
 
+<!-- Footer -->
 <footer>
     <p>© 2026 Ben Spiegler</p>
 </footer>
