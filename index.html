@@ -1,60 +1,99 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Ben Spiegler | Engineering Portfolio</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
+        /* Reset default margins */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        header {
+        body { font-family: Arial, sans-serif; line-height: 1.6; background: #f4f4f4; color: #333; }
+
+        /* Navigation */
+        nav {
             background: #111;
             color: white;
-            padding: 20px;
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover { color: #00bfff; }
+
+        /* Sections */
         section {
-            padding: 40px;
-            max-width: 900px;
+            padding: 60px 20px;
+            max-width: 1000px;
             margin: auto;
             background: white;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        h1, h2 { margin-bottom: 20px; }
+        h2 { border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+
+        /* Project Cards */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
             margin-top: 20px;
+        }
+
+        .card {
+            background: #fafafa;
             border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        h2 {
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 10px;
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
         }
 
-        img {
-            max-width: 100%;
-            border-radius: 8px;
-            margin-top: 15px;
+        .card img {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
         }
 
+        /* Footer */
         footer {
             text-align: center;
             padding: 20px;
-            margin-top: 40px;
             background: #111;
             color: white;
+            margin-top: 40px;
         }
+
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
     </style>
 </head>
-
 <body>
 
-<header>
-    <h1>Ben Spiegler</h1>
-    <p>Engineering Portfolio</p>
-</header>
+<nav>
+    <a href="#about">About Me</a>
+    <a href="#projects">Projects</a>
+    <a href="#photos">Photos</a>
+    <a href="#contact">Contact</a>
+</nav>
 
-<section>
+<section id="about">
+    <h1>Ben Spiegler</h1>
     <h2>About Me</h2>
     <p>
         Write a short paragraph about yourself, your interests in engineering,
@@ -62,20 +101,33 @@
     </p>
 </section>
 
-<section>
+<section id="projects">
     <h2>Projects</h2>
-    <p>
-        Describe your engineering projects here.
-        What problem were you solving?
-        What did you design?
-        What did you learn?
-    </p>
+    <div class="projects">
+        <div class="card">
+            <img src="yourimage1.jpg" alt="Project 1">
+            <h3>Project Title 1</h3>
+            <p>Brief description of what you built and what you learned.</p>
+        </div>
+        <div class="card">
+            <img src="yourimage2.jpg" alt="Project 2">
+            <h3>Project Title 2</h3>
+            <p>Brief description of this project. Include tools, skills, results.</p>
+        </div>
+        <!-- Add more cards as needed -->
+    </div>
 </section>
 
-<section>
+<section id="photos">
     <h2>Photos</h2>
-    <p>Add project images below:</p>
-    <img src="yourimage.jpg">
+    <img src="yourimage3.jpg" alt="Extra Photo">
+    <img src="yourimage4.jpg" alt="Extra Photo">
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <p>Email: youremail@example.com</p>
+    <p>Phone: (555) 555-5555</p>
 </section>
 
 <footer>
