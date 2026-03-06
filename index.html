@@ -2,105 +2,108 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ben Spiegler | Weather Station Portfolio</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Ben Spiegler | Weather Station Project</title>
     <style>
-        /* Simple blue-and-white theme */
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f8fb;
-            color: #0b2f57;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-        }
+        /* Reset defaults */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; line-height: 1.6; background: #e6f0ff; color: #003366; }
 
-        header, section, footer {
+        /* Navigation */
+        nav {
+            background: #003366;
+            color: white;
+            display: flex;
+            justify-content: center;
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        nav a:hover { color: #66ccff; }
+
+        /* Sections */
+        section {
+            padding: 40px 20px;
             max-width: 900px;
             margin: 30px auto;
-            padding: 20px;
             background: white;
             border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
+        h1, h2, h3 { margin-bottom: 15px; }
+        h2 { border-bottom: 2px solid #cce0ff; padding-bottom: 8px; }
+        h3 { color: #003366; margin-top: 20px; margin-bottom: 8px; }
 
-        header h1 {
-            text-align: center;
-            color: #0b2f57;
-        }
+        /* Lists */
+        ul { margin-left: 20px; margin-bottom: 15px; }
+        li { margin-bottom: 5px; }
 
-        header p {
-            text-align: center;
-            font-size: 1.2em;
-            color: #1b3f6f;
-        }
+        /* Images & Videos */
+        img, video { max-width: 100%; border-radius: 5px; margin: 10px 0; }
 
-        h2 {
-            border-bottom: 2px solid #0b2f57;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-        }
-
-        ul {
-            margin-left: 20px;
-        }
-
-        a {
-            color: #1b3f6f;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        img, video {
-            max-width: 100%;
-            border-radius: 5px;
-            margin: 10px 0;
-        }
-
+        /* Footer */
         footer {
             text-align: center;
-            background: #0b2f57;
-            color: white;
             padding: 15px;
+            background: #003366;
+            color: white;
             margin-top: 40px;
         }
+
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
     </style>
 </head>
 <body>
 
-<header>
+<!-- Navigation -->
+<nav>
+    <a href="#description">Description</a>
+    <a href="#instructions">Instructions</a>
+    <a href="#process">Process</a>
+    <a href="#mistakes">Mistakes/Solutions</a>
+    <a href="#reflection">Reflection</a>
+</nav>
+
+<!-- Header -->
+<header style="text-align:center; padding:40px 0;">
     <h1>Weather Station Project</h1>
     <p>Engineering Design Portfolio</p>
 </header>
 
+<!-- Description Section -->
 <section id="description">
     <h2>Description</h2>
-    <p>
-        This project is an Arduino-based weather station that measures and displays temperature, humidity, barometric pressure, and max/min temperature in real time.
-    </p>
-    <p>
-        Inspiration: <a href="https://www.instructables.com/Arduino-Easy-Weather-Station-With-BME280-Sensor/" target="_blank">Arduino Easy Weather Station With BME280 Sensor</a>
-    </p>
-    <p>
-        How this project differs from the source: upgraded display, Fahrenheit readings, max/min tracking, custom 3D-printed case, etc.
-    </p>
-    <p>
-        Design considerations: accuracy, readability, enclosure protection, and easy assembly.
-    </p>
+    <p>This project is an Arduino-based weather station that measures and displays temperature, humidity, barometric pressure, and maximum/minimum temperature in real time. The device uses a BME280 sensor and outputs readings to a TFT display on an Arduino Mega. Components are housed in a custom 3D-printed enclosure.</p>
+
+    <h3>Inspiration</h3>
+    <p>Arduino Easy Weather Station With BME280 Sensor by Nick Koumaris on Instructables.</p>
+    <p>Source: <a href="https://www.instructables.com/Arduino-Easy-Weather-Station-With-BME280-Sensor/" target="_blank">Instructables Link</a></p>
+
+    <h3>How This Project Differs</h3>
+    <p>The original tutorial uses an Arduino Mega with a 16x2 LCD shield. This project upgrades to a TFT color shield with display cycling, Fahrenheit readings, max/min temperature tracking, and a fully enclosed 3D-printed case.</p>
+
+    <h3>Design Considerations</h3>
+    <p>Focus was on readability, accurate sensor readings, compact design, and ease of assembly.</p>
 </section>
 
+<!-- Instructions Section -->
 <section id="instructions">
     <h2>Instructions</h2>
-    <h3>Materials</h3>
+
+    <h3>BOM (Materials)</h3>
     <ul>
         <li>Arduino Mega</li>
         <li>BME280 Sensor</li>
         <li>TFT Display Shield</li>
         <li>3D-printed enclosure</li>
-        <li>Wires, breadboard, etc.</li>
+        <li>Misc. wiring and components</li>
     </ul>
 
     <h3>Gantt Chart</h3>
@@ -110,57 +113,53 @@
     <ul>
         <li>Arduino IDE</li>
         <li>Fusion 360</li>
-        <li>3D Printer</li>
+        <li>3D Printer (Bambu)</li>
     </ul>
 
     <h3>Code & Fusion Files</h3>
     <ul>
         <li><a href="assets/code/weather_station.ino" target="_blank">Arduino Code</a></li>
-        <li><a href="assets/fusion/design.f3d" target="_blank">Fusion 360 File</a></li>
+        <li><a href="assets/fusion/design.f3d" target="_blank">Fusion 360 Design</a></li>
     </ul>
 </section>
 
+<!-- Process Section -->
 <section id="process">
     <h2>Process</h2>
-    <p>Daily journal of project progress:</p>
-    <img src="assets/images/day1.jpg" alt="Day 1 progress">
+    <p>Daily journal entries documenting design decisions, challenges, and progress:</p>
+
+    <h3>Day 1</h3>
+    <p>Initial assembly and sensor testing.</p>
+    <img src="assets/images/day1.jpg" alt="Day 1">
+
+    <h3>Day 2</h3>
+    <p>Code integration and display setup.</p>
     <video controls>
-        <source src="assets/videos/day1.mp4" type="video/mp4">
+        <source src="assets/videos/day2.mp4" type="video/mp4">
     </video>
-    <p>More daily notes and updates...</p>
+
+    <!-- Add more days as needed -->
 </section>
 
+<!-- Mistakes / Solutions Section -->
 <section id="mistakes">
     <h2>Mistakes / Solutions</h2>
-    <p>Problems encountered during building and coding the project.</p>
-    <p>How each problem was solved or workarounds implemented.</p>
+    <p>Problem: TFT display wasn’t updating correctly initially.</p>
+    <p>Solution: Rewrote display code to properly cycle measurements and added debugging logs.</p>
 </section>
 
+<!-- Reflection Section -->
 <section id="reflection">
     <h2>Reflection</h2>
-    <p>What I learned from this project, including technical and problem-solving skills.</p>
-    <p>Experience managing a large project and time management lessons.</p>
-    <p>Next steps or improvements I would like to make on this project.</p>
+    <p>I learned the importance of proper sensor calibration and testing before full assembly.</p>
+    <p>Working on a large project taught me to plan with a Gantt chart and divide tasks efficiently.</p>
+    <p>Next, I want to add wireless data logging and integrate more sensors for future versions.</p>
 </section>
 
+<!-- Footer -->
 <footer>
     <p>© 2026 Ben Spiegler</p>
 </footer>
 
 </body>
-<p> 
- https://docs.google.com/spreadsheets/d/1Sp4i9KZTO3Qc2L2ubeQA5-myLgPyZhsYsh-Oxb2Bu1k/edit?usp=sharing   
-</p>
-<p>
-    Tools & Equipment
-Software Tools
-Arduino IDE was used to write, test, and upload all code to the Arduino Mega. Fusion 360 was used to design the custom 3D-printed enclosure, with calipers used to take precise measurements of the electronics before modeling. Bambu slicer software was used to prepare and send print files to the Bambu 3D printer. GitHub was used for version control and to store all project files, including code, design files, photos, and videos. Flint (an AI-assisted BOM checker) was used during the research phase to verify that selected parts matched the project requirements. ChatGPT was used throughout the project to assist with troubleshooting code and display issues.
-</p>
-<p>
-    Hand Tools & Fab Lab Equipment
-A soldering iron was used to solder header pins onto the BME280 sensor. Calipers were used to measure component dimensions for accurate enclosure design. A Bambu 3D printer was used to fabricate all enclosure parts. A laptop was used for all software work, coding, and file management. A breadboard was used during early testing phases to verify individual components before final assembly.
-</p>
-<p> 
-    Project Files
-</p>
 </html>
