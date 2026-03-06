@@ -1,56 +1,98 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather Station Portfolio</title>
 
-  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- favicon -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
 
+  <!-- custom css -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<div id="particles"></div>
+  <main>
+    <!-- Sidebar -->
+    <aside class="sidebar" data-sidebar>
+      <div class="sidebar-info">
+        <figure class="avatar-box">
+          <img src="./assets/images/my-avatar.png" alt="Ben Spiegler" width="80">
+        </figure>
+        <div class="info-content">
+          <h1 class="name" title="Ben Spiegler">Ben Spiegler</h1>
+          <p class="title">Engineering Portfolio</p>
+        </div>
+      </div>
+    </aside>
 
-<div id="intro">
+    <!-- Main content -->
+    <div class="main-content">
 
-<h1>Weather Station Project</h1>
+      <!-- Navbar -->
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li class="navbar-item">
+            <button class="navbar-link active" data-nav-link>Research</button>
+          </li>
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Instructions</button>
+          </li>
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Documentation</button>
+          </li>
+        </ul>
+      </nav>
 
-<p>Engineering Design Portfolio</p>
+      <!-- Research Section -->
+      <article class="about active" data-page="about">
+        <header>
+          <h2 class="h2 article-title">Research</h2>
+        </header>
+        <section class="about-text">
+          <p>This section explains the research done before building the weather station.</p>
+          <p>Topics include sensor types, microcontrollers, and data collection methods.</p>
+        </section>
+      </article>
 
-</div>
+      <!-- Instructions Section -->
+      <article class="resume" data-page="resume">
+        <header>
+          <h2 class="h2 article-title">Instructions</h2>
+        </header>
+        <section class="timeline">
+          <p>This section explains how to build and program the weather station step-by-step.</p>
+        </section>
+      </article>
 
-<section>
+      <!-- Documentation Section -->
+      <article class="portfolio" data-page="portfolio">
+        <header>
+          <h2 class="h2 article-title">Documentation of Learning</h2>
+        </header>
+        <section class="projects">
+          <p>This section contains journal entries, design challenges, and progress throughout the project.</p>
+        </section>
+      </article>
 
-<h2>Research</h2>
+    </div>
+  </main>
 
-<p>
-This section explains the research done before building the weather station.
-Topics include sensor types, microcontrollers, and data collection methods.
-</p>
+  <!-- custom js -->
+  <script src="./assets/js/script.js"></script>
 
-</section>
-
-<section>
-
-<h2>Instructions</h2>
-
-<p>
-This section explains how to build and program the weather station step-by-step.
-</p>
-
-</section>
-
-<section>
-
-<h2>Documentation of Learning</h2>
-
-<p>
-This section contains journal entries, design challenges, and progress throughout the project.
-</p>
-
-</section>
+  <!-- ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </body>
-
 </html>
