@@ -1,198 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>Ben Spiegler | Weather Station Project</title>
+    <title>Ben Spiegler | Weather Station</title>
     <style>
+        /* Reset & basics */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; line-height: 1.6; background: #f4f4f4; color: #333; }
-        nav { background: #007bff; color: white; display: flex; justify-content: center; padding: 15px; position: sticky; top: 0; z-index: 1000; }
+        body { font-family: Arial, sans-serif; line-height: 1.6; background: #f4f8ff; color: #0a0a0a; }
+
+        /* Navigation */
+        nav {
+            background: #0077cc;
+            color: white;
+            display: flex;
+            justify-content: center;
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
         nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: bold; }
-        nav a:hover { color: #cce5ff; }
-        section { padding: 40px 20px; max-width: 900px; margin: 30px auto; background: white; border-radius: 8px; }
-        h1, h2, h3, h4 { margin-bottom: 15px; }
-        h2 { border-bottom: 2px solid #007bff; padding-bottom: 8px; }
-        ul { margin: 10px 0 20px 20px; }
-        img { max-width: 100%; border-radius: 5px; margin-bottom: 15px; }
-        video { max-width: 100%; margin-bottom: 15px; }
-        footer { text-align: center; padding: 20px; background: #007bff; color: white; margin-top: 40px; }
-        html { scroll-behavior: smooth; }
+        nav a:hover { color: #ffcc00; }
+
+        /* Sections */
+        section { 
+            padding: 40px 20px; 
+            max-width: 1000px; 
+            margin: auto; 
+            background: white; 
+            border-radius: 8px; 
+            margin-top: 30px; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3, h4 { margin-bottom: 20px; }
+        h2 { border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+
+        /* Links */
+        a { color: #0077cc; }
+        a:hover { color: #ff9900; }
+
+        /* Lists */
+        ul { margin-left: 20px; margin-bottom: 20px; }
+
+        /* Images & videos */
+        img { max-width: 100%; border-radius: 5px; margin-bottom: 10px; }
+        video { max-width: 100%; margin-bottom: 10px; }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #0077cc;
+            color: white;
+            margin-top: 40px;
+        }
     </style>
 </head>
-
 <body>
 
 <nav>
     <a href="#description">Description</a>
     <a href="#instructions">Instructions</a>
     <a href="#process">Process</a>
-    <a href="#mistakes">Mistakes / Solutions</a>
+    <a href="#mistakes">Mistakes/Solutions</a>
     <a href="#reflection">Reflection</a>
 </nav>
 
-<header style="text-align:center; margin-top:20px;">
-    <h1>Weather Station Project</h1>
-    <p>Engineering Design Portfolio</p>
-</header>
-
-<!-- Description Section -->
 <section id="description">
+    <h1>Weather Station Project</h1>
     <h2>Description</h2>
     <p>
-        This project is an Arduino-based weather station that measures and displays temperature, humidity, barometric pressure, and maximum/minimum temperature in real time. The device uses a BME280 sensor and outputs readings to a TFT display shield mounted on an Arduino Mega. All components are in a custom-designed, 3D-printed enclosure created using Fusion 360 and printed on a Bambu printer. A successful project displays accurate, live environmental data in a clear, readable format.
+        This project is an Arduino-based weather station that measures and displays temperature, humidity, barometric pressure, and the maximum and minimum temperature in real time. The device uses a BME280 sensor to collect data and outputs readings to a TFT display shield mounted on an Arduino Mega. All components are in a custom-designed, 3D-printed enclosure created using Fusion 360 and printed on a Bambu printer. A successful project displays accurate, live environmental data in a clear, readable format within a clean, fully enclosed case.
     </p>
+
+    <h3>Inspiration</h3>
     <p>
-        Inspiration: <a href="https://www.instructables.com/Arduino-Easy-Weather-Station-With-BME280-Sensor/" target="_blank">Arduino Easy Weather Station With BME280 Sensor by Nick Koumaris</a>
+        This project was inspired by Arduino Easy Weather Station With BME280 Sensor by Nick Koumaris on Instructables.<br>
+        Source: <a href="https://www.instructables.com/Arduino-Easy-Weather-Station-With-BME280-Sensor/" target="_blank">https://www.instructables.com/Arduino-Easy-Weather-Station-With-BME280-Sensor/</a>
     </p>
+
+    <h3>How This Project Differs From the Source</h3>
     <p>
-        Differences from the source: The original project uses a 16x2 LCD and shows readings every 2 seconds. This project uses a TFT color display, cycles through readings every 3 seconds, displays in Fahrenheit, tracks max/min temperatures, and is enclosed in a custom 3D-printed case.
+        The original tutorial uses an Arduino Mega paired with a basic 16x2 LCD shield and displays temperature, humidity, and pressure simultaneously, updating every two seconds in Celsius. This project diverges in several significant ways. The display was upgraded to a TFT color shield, requiring entirely rewritten display code. The interface was redesigned to cycle through individual measurements every three seconds rather than showing all readings at once. Fahrenheit was substituted for Celsius. A max/min temperature tracking feature with an automatic 24-hour reset was added — functionality not present in the source. Finally, the entire electronics assembly was enclosed in an original custom case designed from scratch in Fusion 360 and 3D printed, whereas the source project has no enclosure.
     </p>
+
+    <h3>Design Considerations</h3>
     <p>
-        Design considerations: All electronics were measured precisely using calipers for the enclosure. The sliding mechanism allows easy access for maintenance. Iterative printing ensured proper fit, visibility, and durability.
+        The enclosure was iteratively designed to fit the electronics snugly, protect components, and provide a readable display. Sensor placement and ventilation were carefully considered for accurate environmental readings.
     </p>
 </section>
 
-<!-- Instructions Section -->
 <section id="instructions">
     <h2>Instructions</h2>
 
-    <h3>Materials / BOM</h3>
+    <h3>BOM</h3>
     <ul>
-        <li>Arduino Mega</li>
-        <li>BME280 Sensor</li>
-        <li>TFT Display Shield</li>
-        <li>Wires, Breadboard, Soldering Tools</li>
-        <li>3D-Printed Enclosure Parts</li>
+        <li>Arduino Mega / Uno</li>
+        <li>BME280 sensor</li>
+        <li>TFT display shield</li>
+        <li>Jumper wires</li>
+        <li>3D-printed enclosure parts</li>
+        <li>Other electronic components</li>
     </ul>
 
     <h3>Tools & Equipment</h3>
-
     <h4>Software Tools</h4>
     <p>
-        Arduino IDE for code development, Fusion 360 for 3D design, Bambu Slicer for 3D printing, GitHub for version control, Flint for BOM verification, and ChatGPT for troubleshooting assistance.
+        Arduino IDE was used to write, test, and upload all code to the Arduino Mega. Fusion 360 was used to design the custom 3D-printed enclosure, with calipers used to take precise measurements of the electronics before modeling. Bambu slicer software was used to prepare and send print files to the Bambu 3D printer. GitHub was used for version control and to store all project files, including code, design files, photos, and videos. Flint (an AI-assisted BOM checker) was used during the research phase to verify that selected parts matched the project requirements. ChatGPT was used throughout the project to assist with troubleshooting code and display issues.
     </p>
 
     <h4>Hand Tools & Fab Lab Equipment</h4>
     <p>
-        Soldering iron for the BME280 sensor, calipers for measurements, Bambu 3D printer for the enclosure, breadboard for early testing, and a laptop for all software tasks.
+        A soldering iron was used to solder header pins onto the BME280 sensor. Calipers were used to measure component dimensions for accurate enclosure design. A Bambu 3D printer was used to fabricate all enclosure parts. A laptop was used for all software work, coding, and file management. A breadboard was used during early testing phases to verify individual components before final assembly.
     </p>
 
-    <h4>Project Files</h4>
+    <h3>Project Files</h3>
     <ul>
-        <li><a href="assets/code/weather_station.ino" target="_blank">Arduino Code (.ino)</a></li>
-        <li><a href="assets/fusion/design.f3d" target="_blank">Fusion 360 File (.f3d)</a></li>
-        <li>STL files for 3D printing</li>
-        <li>Photos (.jpg)</li>
-        <li>Videos (.mp4)</li>
+        <li>Arduino (.ino) — Final weather station code, including display cycling logic, max/min temperature tracking, and 24-hour reset functionality. Also includes early test files for the sensor and display individually.</li>
+        <li>Fusion 360 (.f3d) — Enclosure design files for both the bottom and top sliding pieces of the 3D-printed case.</li>
+        <li>STL files — Print-ready exports of the enclosure components used with the Bambu slicer.</li>
+        <li>Photos (.jpg) — Documentation photos converted from HEIC format, covering build progress and final assembly.</li>
+        <li>Videos (.mp4) — Build and demonstration videos converted from MOV format.</li>
     </ul>
 </section>
 
-<!-- Process Section -->
 <section id="process">
-    <h2>Process</h2>
+    <h2>Daily Journal</h2>
 
-    <h3>Daily Journal</h3>
-
-    <h4>January 6</h4>
+    <h3>January 6</h3>
     <p>Joined the classroom and began researching possible project options. Top candidates included a phantom chessboard, home automation intruder alarm, online security camera, GPS/SMS call box, and a weather station display.</p>
 
-    <h4>January 7</h4>
+    <h3>January 7</h3>
     <p>Selected the Weather Station as the final project. Began work on the task analysis.</p>
 
-    <h4>January 8</h4>
+    <h3>January 8</h3>
     <p>Completed the task analysis. Started building the Gantt Chart.</p>
 
-    <h4>January 9</h4>
+    <h3>January 9</h3>
     <p>Finished the Gantt Chart.</p>
 
-    <h4>January 12</h4>
+    <h3>January 12</h3>
     <p>Began researching required parts and started drafting the Bill of Materials.</p>
 
-    <h4>January 14</h4>
-    <p>Completed the BOM. Used Flint to verify that the selected parts matched the tutorial requirements. Identified a better sensor option than originally listed.</p>
+    <h3>January 14</h3>
+    <p>Completed the BOM. Used Flint, an AI tool, to verify that the selected parts matched the tutorial requirements. This process identified a better sensor option than the one originally listed.</p>
 
-    <h4>January 15</h4>
-    <p>Began writing test code for the breadboard setup. Installed Adafruit BME280 library and LiquidCrystal library. Set up GitHub repository.</p>
+    <h3>January 15</h3>
+    <p>Began writing test code for the breadboard setup. Installed the Adafruit BME280 library and the LiquidCrystal library. Set up a GitHub repository and configured it on a home computer for version control.</p>
 
-    <h4>January 20</h4>
-    <p>Finished template testing code. Began customizing the code for the new display using AI assistance.</p>
+    <h3>January 20</h3>
+    <p>Finished template testing code. Began customizing the code for the new display using AI assistance — provided the template code and prompted the AI to adapt it for the new display.</p>
 
-    <h4>January 21</h4>
-    <p>Revised the code to add max/min temperature tracking and changed the display to cycle through one measurement at a time, switching every three seconds. Max/min resets every 24 hours.</p>
+    <h3>January 21</h3>
+    <p>Revised the code to add max/min temperature tracking and changed the display to cycle through one measurement at a time, switching every three seconds. Max/min resets every 24 hours. Created separate blink test code for the display and sensor test code, then combined them into a unified test file.</p>
 
-    <h4>January 22</h4>
-    <p>Ordered parts. Switched from Arduino Mega to Arduino Uno due to port requirements. Created new test code for the Uno.</p>
+    <h3>January 22</h3>
+    <p>Ordered parts. Switched from the Arduino Mega to a standard Arduino Uno since only a few ports were needed. Created new test code for the Uno.</p>
 
-    <h4>January 23</h4>
-    <p>Converted all code from Mega to Uno. Found inspiration for the enclosure design online.</p>
+    <h3>January 23</h3>
+    <p>Converted all code from the Arduino Mega to the Arduino Uno. Found inspiration for the enclosure design online.</p>
 
-    <h4>January 28</h4>
-    <p>Parts arrived. Tested Arduino Uno and sensor code. Sensor required soldering header pins before use.</p>
+    <h3>January 28</h3>
+    <p>Parts arrived. Tested the Arduino Uno and ran sensor test code. Encountered a common error where the sensor was not detected — determined that header pins needed to be soldered onto the sensor before it could be used.</p>
 
-    <h4>February 4</h4>
-    <p>Soldered header pins onto BME280 sensor. Wired sensor to breadboard, then switched back to Mega. Display powered successfully.</p>
+    <h3>February 4</h3>
+    <p>Soldered header pins onto the BME280 sensor. Wired the sensor to the breadboard: GND to ground, VCC to power, SDA to A4, and SCL to A5. Switched back to the Arduino Mega and moved SDA and SCL to the dedicated pins — code continued to work. Connected the display shield to the Mega and powered it on successfully.</p>
 
-    <h4>February 5–6</h4>
-    <p>Ran test code for display. Screen powered on but did not respond. Troubleshooting revealed display was incompatible with Mega; ordered replacement. Updated code to use Fahrenheit and refined max/min reset logic.</p>
+    <h3>February 5</h3>
+    <p>Ran test code for the display. The screen powered on but did not respond to the code.</p>
 
-    <h4>February 10–11</h4>
-    <p>Replacement display arrived. Initial pin layout blocked sensor ports. Used AI to rewrite code for new configuration.</p>
+    <h3>February 6</h3>
+    <p>Continued troubleshooting the display with no success. Researched the issue on the Arduino forums and used ChatGPT to assist. Concluded that the display was incompatible with the Arduino Mega. Decided to order a different display. In the meantime, updated the code to change temperature units from Celsius to Fahrenheit and refined the max/min reset logic.</p>
 
-    <h4>February 18–19</h4>
-    <p>Successfully got sensor and display working together. Refined text size and colors.</p>
+    <h3>February 10</h3>
+    <p>Ordered a replacement display shield. Continued troubleshooting the original 3.5" TFT display without resolution. Researched potential enclosure designs.</p>
 
-    <h4>February 23–March 4</h4>
-    <p>Completed enclosure design with multiple prints. Fixed wall thickness, cable hole alignment, sliding mechanism, and display fit. Uploaded all files to GitHub. Final documentation photos and slideshow completed. Created GitHub Pages site for portfolio.</p>
+    <h3>February 11</h3>
+    <p>New display arrived. It powered on and ran code successfully, but its pin layout blocked the ports needed for the sensor.</p>
+
+    <h3>February 18</h3>
+    <p>New 5V sensor arrived. The sensor ports were still blocked by the display shield. Used AI to help rewrite the code to work around the pin conflict.</p>
+
+    <h3>February 19</h3>
+    <p>Successfully got the sensor and display working together. Refined text size and color settings using AI assistance, as the initial output was small and difficult to read.</p>
+
+    <h3>February 23</h3>
+    <p>Completed all measurements for the enclosure using calipers. Began designing the case in Fusion 360. Sent the first print to the Bambu printer.</p>
+
+    <h3>February 24</h3>
+    <p>Received the first print. The part had been printed on the wrong side, requiring supports that damaged the surface. The walls were also too thin. The cable hole and overall fit were functional. Next steps: increase wall thickness, improve the top opening to frame the display properly, and reorient the print to eliminate supports.</p>
+
+    <h3>February 25</h3>
+    <p>Updated the design with thicker walls, better electronics coverage, and correct print orientation. The display fit improved, though electronics were still partially exposed. Added a sliding rail mechanism to allow a back panel to close the case. Started the next print.</p>
+
+    <h3>February 26</h3>
+    <p>Designed the top sliding piece by copying measurements from the bottom piece to ensure the rail mechanism would fit. Printed the top piece — it was slightly too large. Identified the issue, adjusted measurements, and revised both the top and bottom pieces. Started a combined print of both parts.</p>
+
+    <h3>February 27</h3>
+    <p>The latest print came out well — the sliding mechanism worked correctly. The top piece slid in smoothly, but the bottom piece was still slightly too large, allowing the display to shift. Corrected the cable hole position and reduced the bottom piece by 0.3 inches to improve the display fit. Started a new print.</p>
+
+    <h3>March 2</h3>
+    <p>Received the updated print. The cable hole was slightly off. Lowered its position by approximately 0.1 inches and started another print.</p>
+
+    <h3>March 3</h3>
+    <p>Received the final print. The cable fit well, and the display sat noticeably flatter. Some movement in the display remains — a future improvement would be to tighten the tolerances further. Also observed that after running for 30 minutes, the temperature reading rose by 7 degrees, likely due to heat generated by the electronics inside the enclosed case. Future iterations should include ventilation holes near the sensor to improve reading accuracy. Uploaded 80 files to GitHub, including photos and videos. All images were converted from HEIC to JPEG and all videos from MOV to MP4.</p>
+
+    <h3>March 4</h3>
+    <p>Completed final documentation photos. Created a slideshow for the project presentation and built a GitHub website to host project files and documentation.</p>
 
     <h3>Final Summary</h3>
-    <p>
-        This project resulted in a fully functional Arduino-based weather station capable of measuring and displaying real-time temperature, humidity, and barometric pressure through a TFT color display, housed in a custom 3D-printed enclosure. Building it required navigating a series of hardware and software challenges — from sensor compatibility issues to iterative enclosure redesigns.
-    </p>
-    <p>
-        Display compatibility was the biggest technical challenge. Original display incompatible with Mega; replacement blocked sensor pins. Required code rewrites.
-    </p>
-    <p>
-        Enclosure went through six iterations over two weeks. Adjustments addressed wall thickness, display fit, cable hole positions, and sliding mechanism.
-    </p>
-    <p>
-        Managing a project of this scale required consistent organization: GitHub for version control, detailed documentation, and tracking decisions. AI tools assisted with debugging and code customization.
-    </p>
-    <p>
-        Future improvements: ventilation holes for BME280, tighter tolerances to prevent display movement, and Wi-Fi connectivity for data logging.
-    </p>
+    <p>This project resulted in a fully functional Arduino-based weather station capable of measuring and displaying real-time temperature, humidity, and barometric pressure through a TFT color display, housed in a custom 3D-printed enclosure. The process of building it required navigating a series of hardware and software challenges — from sensor compatibility issues to iterative enclosure redesigns — that pushed the project well beyond the scope of the original tutorial. Each obstacle required independent research, creative problem-solving, and a willingness to restart portions of the work from scratch.</p>
+
+    <p>One of the most significant technical challenges was display compatibility. The first display was found to be incompatible with the Arduino Mega after several days of troubleshooting, requiring a replacement to be ordered. When the new display arrived, it introduced a new problem by blocking the sensor's pin connections, which required code-level rewrites to resolve. These setbacks were instructive — they demonstrated that hardware integration is rarely straightforward and that troubleshooting is an essential, time-consuming part of the engineering process rather than an exception to it.</p>
+
+    <p>The enclosure design went through six printed iterations over the course of two weeks. Each version revealed new issues — walls too thin, display misaligned, cable hole off by a fraction of an inch — that required design updates in Fusion 360 before reprinting. The sliding rail mechanism that was developed to close the case was a design solution that emerged directly from the constraints of the build, rather than from the original plan.</p>
+
+    <p>Managing a project of this scale over several months also required consistent organization. Using GitHub for version control, maintaining detailed documentation, and tracking decisions as they were made all proved to be as important as the technical work itself. The project also highlighted the value of AI tools — used responsibly to assist with debugging and code customization — as a practical resource in the engineering workflow.</p>
+
+    <p>Looking ahead, several improvements would strengthen the project. Adding ventilation holes around the BME280 sensor would allow better airflow and improve measurement accuracy, as heat from the enclosed electronics was observed to skew temperature readings over time. Tighter tolerances in the enclosure would eliminate the remaining display movement. A longer-term enhancement could include Wi-Fi connectivity via an ESP8266 or similar module, enabling the station to log data over time or push readings to a web dashboard — expanding the project from a standalone display into a networked environmental monitoring tool.</p>
 </section>
 
-<!-- Mistakes / Solutions Section -->
 <section id="mistakes">
     <h2>Mistakes / Solutions</h2>
-    <p>Initial display incompatible with Mega. Sensor blocked by replacement display. Required multiple code rewrites and replacement parts.</p>
-    <p>Enclosure design required several iterations to fix wall thickness, cable holes, and sliding mechanism tolerances.</p>
+    <p><!-- Paste any text you wrote for problems and solutions here --></p>
 </section>
 
-<!-- Reflection Section -->
 <section id="reflection">
     <h2>Reflection</h2>
-<h3>Final Summary</h3>
-<p>
-This project resulted in a fully functional Arduino-based weather station capable of measuring and displaying real-time temperature, humidity, and barometric pressure through a TFT color display, housed in a custom 3D-printed enclosure. The process of building it required navigating a series of hardware and software challenges — from sensor compatibility issues to iterative enclosure redesigns — that pushed the project well beyond the scope of the original tutorial. Each obstacle required independent research, creative problem-solving, and a willingness to restart portions of the work from scratch.
-</p>
-
-<p>
-One of the most significant technical challenges was display compatibility. The first display was found to be incompatible with the Arduino Mega after several days of troubleshooting, requiring a replacement to be ordered. When the new display arrived, it introduced a new problem by blocking the sensor's pin connections, which required code-level rewrites to resolve. These setbacks were instructive — they demonstrated that hardware integration is rarely straightforward and that troubleshooting is an essential, time-consuming part of the engineering process rather than an exception to it.
-</p>
-
-<p>
-The enclosure design went through six printed iterations over the course of two weeks. Each version revealed new issues — walls too thin, display misaligned, cable hole off by a fraction of an inch — that required design updates in Fusion 360 before reprinting. The sliding rail mechanism that was developed to close the case was a design solution that emerged directly from the constraints of the build, rather than from the original plan.
-</p>
-
-<p>
-Managing a project of this scale over several months also required consistent organization. Using GitHub for version control, maintaining detailed documentation, and tracking decisions as they were made all proved to be as important as the technical work itself. The project also highlighted the value of AI tools — used responsibly to assist with debugging and code customization — as a practical resource in the engineering workflow.
-</p>
-
-<p>
-Looking ahead, several improvements would strengthen the project. Adding ventilation holes around the BME280 sensor would allow better airflow and improve measurement accuracy, as heat from the enclosed electronics was observed to skew temperature readings over time. Tighter tolerances in the enclosure would eliminate the remaining display movement. A longer-term enhancement could include Wi-Fi connectivity via an ESP8266 or similar module, enabling the station to log data over time or push readings to a web dashboard — expanding the project from a standalone display into a networked environmental monitoring tool.
-</p>
+    <p><!-- Paste your reflection text here: what you learned, process, future plans --></p>
 </section>
 
 <footer>
