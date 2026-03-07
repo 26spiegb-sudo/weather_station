@@ -314,9 +314,16 @@ This project is a personal indoor weather station designed to measure and displa
 </section>
 
 <section id="mistakes">
-    <h2>Mistakes / Solutions</h2>
+    <h2>Mistakes
+    </h2>
     <p>
-        One of the most significant technical challenges was display compatibility. The first display was found to be incompatible with the Arduino Mega after several days of troubleshooting, requiring a replacement to be ordered. When the new display arrived, it introduced a new problem by blocking the sensor's pin connections, which required code-level rewrites to resolve. These setbacks were instructive — they demonstrated that hardware integration is rarely straightforward and that troubleshooting is an essential, time-consuming part of the engineering process rather than an exception to it.
+There were many mistakes throughout the project that required correction. The first major error was ordering the wrong Arduino board, the Mega was initially selected but later replaced with the Uno when it became clear fewer ports were needed, resulting in wasted time rewriting code for the new board. When the original TFT display arrived and failed to work with the Mega after several days of troubleshooting, it became clear the two were simply incompatible. The replacement display arrived and its pins blocked the sensor connections which prevented the sensor from working. On the hardware side, the sensor headers were not soldered before initial testing, causing a delay because the sensor could not be tested. In regards to the enclosure, many interactions were made to correct the dimensions, sliding mechanism, and functionality of the case.
+    </p>
+    <h1>
+        Solutions
+    </h1>
+    <p>
+        The Arduino board mismatch was corrected by switching to the Uno and rewriting the code to match its pin configuration. When the original display proved incompatible with the Mega, a replacement display shield was ordered after using ChatGPT to confirm the root cause of the issue. The pin conflict between the new display and the sensor was resolved by ordering a 5V version of the BME280 to allow the sensor to plug into the mega. Soldering the header pins onto the sensor resolved the issue of not being able to run code to the sensor. Enclosure problems were solved through multiple revisions. Each print was examined, specific measurements were corrected in Fusion 360, and a new version was printed until the prototype was corrected.
     </p>
     <p>
         The enclosure design went through six printed iterations over the course of two weeks. Each version revealed
