@@ -42,14 +42,24 @@
     <p>
         This project is an Arduino-based weather station that measures and displays temperature, humidity, barometric pressure, and the maximum and minimum temperature in real time. The device uses a BME280 sensor to collect data and outputs readings to a TFT display shield mounted on an Arduino Mega. All components are in a custom-designed, 3D-printed enclosure created using Fusion 360 and printed on a Bambu printer. A successful project displays accurate, live environmental data in a clear, readable format within a clean, fully enclosed case.
     </p>
+    <h1>
+        Link to Inspiration
+    </h1>
     <p>
-        Inspiration: <a href="https://www.instructables.com/Arduino-Easy-Weather-Station-With-BME280-Sensor/" target="_blank">Arduino Easy Weather Station With BME280 Sensor by Nick Koumaris</a>
+        <a href="https://www.instructables.com/Arduino-Easy-Weather-Station-With-BME280-Sensor/" target="_blank">Arduino Easy Weather Station With BME280 Sensor by Nick Koumaris</a>
     </p>
+    <h1>
+      How This Project Differs From the Source:  
+    </h1>
     <p>
-        How This Project Differs From the Source: The original tutorial uses an Arduino Mega paired with a basic 16x2 LCD shield and displays temperature, humidity, and pressure simultaneously, updating every two seconds in Celsius. This project diverges in several significant ways. The display was upgraded to a TFT color shield, requiring entirely rewritten display code. The interface was redesigned to cycle through individual measurements every three seconds rather than showing all readings at once. Fahrenheit was substituted for Celsius. A max/min temperature tracking feature with an automatic 24-hour reset was added — functionality not present in the source. Finally, the entire electronics assembly was enclosed in an original custom case designed from scratch in Fusion 360 and 3D printed, whereas the source project has no enclosure.
+The original tutorial uses an Arduino Mega paired with a basic 16x2 LCD shield that displays temperature, humidity, and pressure with minimal visual customization. This project upgraded to a 3.5" TFT color display, roughly double the screen area, which enabled significantly greater control over text size, layout, and color. Because the display hardware differed from the source, the display code was altered. Additional functionality was also added beyond the original, the station tracks and displays daily maximum and minimum temperatures, resetting automatically every 24 hours. The display also shows one reading at a time for three seconds before switching, rather than showing all data at once. The temperature was converted from Celsius to Fahrenheit. Finally, the entire electronics assembly was enclosed in a custom case designed from scratch in Fusion 360 and 3D printed which was not in the inspiration at all.
+
     </p>
+    <h1>
+        Design Considerations
+    </h1>
     <p>
-        Design considerations: Ensure clear readability, accurate sensor placement, proper display cycling, and robust enclosure design.
+This project is a personal indoor weather station designed to measure and display real-time temperature, humidity, and barometric pressure. It is built for personal use and was completed as an individual project. The device is intended for indoor use and is portable, as it only requires a USB power source. It does not connect to the Internet or use Bluetooth. The enclosure was fabricated using a 3D printer. The project is powered by an Arduino Mega. Inputs come from a BME280 environmental sensor, outputs are displayed on a 3.5" TFT color display. The project differs from its inspiration by using a larger color display, custom enclosure, cycling data interface, max/min temperature tracking, and Fahrenheit output. The inspirational tutorial was published in 2017 on Instructables and remains available with current, accessible parts. Total spending came to approximately $55–60, within the $75 maximum. The enclosure measures approximately 5" long, 4" high, and 2" wide. Materials used include an Arduino Mega, BME280 sensor, TFT display shield, jumper wires, solder, and PLA filament. The BOM spreadsheet has been completed and linked below. All tools required, soldering iron, calipers, and 3D printer are found in the Fab Lab. Electronics are concealed within the custom 3D-printed enclosure, with only the display visible through the front opening.
     </p>
 </section>
 
@@ -57,10 +67,13 @@
     <h2>Instructions</h2>
 
     <h3>Materials / BOM</h3>
+    <p>
+          <a href="https://docs.google.com/spreadsheets/d/1Sp4i9KZTO3Qc2L2ubeQA5-myLgPyZhsYsh-Oxb2Bu1k/edit?usp=sharing"
+    </p>
     <ul>
         <li>Arduino Mega / Uno</li>
         <li>BME280 Sensor</li>
-        <li>TFT Display Shield</li>
+        <li>3.5" TFT Display Shield</li>
         <li>3D-Printed Enclosure</li>
         <li>Jumper Wires, Breadboard, Soldering Supplies</li>
     </ul>
@@ -68,7 +81,7 @@
     <h3>Tools & Equipment</h3>
     <h4>Software Tools</h4>
     <p>
-        Arduino IDE was used to write, test, and upload all code to the Arduino Mega. Fusion 360 was used to design the custom 3D-printed enclosure, with calipers used to take precise measurements of the electronics before modeling. Bambu slicer software was used to prepare and send print files to the Bambu 3D printer. GitHub was used for version control and to store all project files, including code, design files, photos, and videos. Flint (an AI-assisted BOM checker) was used during the research phase to verify that selected parts matched the project requirements. ChatGPT was used throughout the project to assist with troubleshooting code and display issues.
+      Arduino IDE was used to write, test, and upload all code to the Arduino Mega. Fusion 360 was used to design the custom 3D-printed enclosure, with calipers used to take precise measurements of the electronics before modeling. Bambu slicer software was used to prepare and send print files to the Bambu 3D printer. GitHub was used for version control and to store all project files, including code, design files, photos, and videos. Flint ai was used during the research phase to verify that selected parts matched the project requirements. ChatGPT was used throughout the project to assist with troubleshooting code and display issues.
     </p>
 
     <h4>Hand Tools & Fab Lab Equipment</h4>
