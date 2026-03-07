@@ -1,39 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-<title>Weather Station Project</title>
-
-<style>
-
-body{
-font-family: Arial, sans-serif;
-line-height:1.6;
-max-width:1000px;
-margin:auto;
-padding:40px;
-}
-
-img{
-width:300px;
-margin:10px;
-border-radius:8px;
-box-shadow:0px 2px 6px rgba(0,0,0,0.2);
-}
-
-.gallery{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-justify-content:center;
-}
-
-h1,h2,h3{
-margin-top:40px;
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <title>Ben Spiegler | Engineering Portfolio</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; line-height: 1.6; background: #f4f4f4; color: #333; }
+        nav { background: #111; color: white; display: flex; justify-content: center; padding: 15px; position: sticky; top: 0; z-index: 1000; }
+        nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: bold; }
+        nav a:hover { color: #00bfff; }
+        section { padding: 60px 20px; max-width: 1000px; margin: auto; background: white; border-radius: 8px; margin-top: 30px; }
+        h1, h2 { margin-bottom: 20px; }
+        h2 { border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+        h3, h4 { margin-top: 20px; margin-bottom: 10px; }
+        ul { margin-left: 20px; margin-bottom: 20px; }
+        .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+        .card { background: #fafafa; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.2s, box-shadow 0.2s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
+        .card img { width: 100%; border-radius: 5px; margin-bottom: 10px; }
+        footer { text-align: center; padding: 20px; background: #111; color: white; margin-top: 40px; }
+        html { scroll-behavior: smooth; }
+        img, video { max-width: 100%; margin-bottom: 20px; border-radius: 5px; }
+        img { width: 300px; margin: 10px; border-radius: 8px; }
+    </style>
 </head>
 
 <body>
@@ -129,115 +119,75 @@ margin-top:40px;
 <section id="process">
     <h2>Process / Daily Journal</h2>
 
-<h2>Final Project</h2>
-
-<div class="gallery">
-
+<h2>Project Images</h2>
 <img src="assets/images/finished_project.jpg" alt="Finished Project">
 <img src="assets/images/display_color.jpg" alt="Display Color Test">
 <img src="assets/images/display_test.jpg" alt="Display Test">
-<img src="assets/images/sensor_display_success.jpg" alt="Sensor Display Success">
-<img src="assets/images/sensor_display_success_2.jpg" alt="Sensor Display Success Second Angle">
-
-</div>
+<img src="assets/images/first_tft.jpg" alt="First TFT Test">
+<img src="assets/images/second_tft.jpg" alt="Second TFT Test">
 
 <h2>Case Development</h2>
 
-<!-- KEEP YOUR WRITING HERE -->
+<h3>First Prototype</h3>
+<img src="assets/images/first_case.jpg" alt="First Case">
+<img src="assets/images/first_case(2).jpg" alt="First Case Version 2">
 
-<div class="gallery">
+<h3>Second Prototype</h3>
+<img src="assets/images/second_case.jpg" alt="Second Case">
+<img src="assets/images/second_case(2).jpg" alt="Second Case Version 2">
+<img src="assets/images/second_case(3).jpg" alt="Second Case Version 3">
 
-<img src="assets/images/first_case.jpg">
-<img src="assets/images/first_case_2.jpg">
+<h3>Fourth Prototype</h3>
+<img src="assets/images/fourth_case.jpg" alt="Fourth Case">
+<img src="assets/images/fourth_case(2).jpg" alt="Fourth Case Version 2">
+<img src="assets/images/fourth_case(3).jpg" alt="Fourth Case Version 3">
 
-<img src="assets/images/second_case.jpg">
-<img src="assets/images/second_case_2.jpg">
-<img src="assets/images/second_case_3.jpg">
+<h3>Fifth Prototype</h3>
+<img src="assets/images/fifth_case.jpg" alt="Fifth Case">
+<img src="assets/images/fifth_case(2).jpg" alt="Fifth Case Version 2">
 
-<img src="assets/images/fourth_case.jpg">
-<img src="assets/images/fourth_case_2.jpg">
-<img src="assets/images/fourth_case_3.jpg">
+<h3>Seventh Prototype</h3>
+<img src="assets/images/seventh_case.jpg" alt="Seventh Case">
+<img src="assets/images/seventh_case(2).jpg" alt="Seventh Case Version 2">
 
-<img src="assets/images/fifth_case.jpg">
-<img src="assets/images/fifth_case_2.jpg">
+<h3>Eighth Prototype</h3>
+<img src="assets/images/8th_case.jpg" alt="Eighth Case">
+<img src="assets/images/8th_case(2).jpg" alt="Eighth Case Version 2">
 
-<img src="assets/images/seventh_case.jpg">
-<img src="assets/images/seventh_case_2.jpg">
+<h3>Ninth Prototype</h3>
+<img src="assets/images/9th_case.jpg" alt="Ninth Case">
 
-<img src="assets/images/8th_case.jpg">
-<img src="assets/images/8th_case_2.jpg">
-
-<img src="assets/images/9th_case.jpg">
-
-<img src="assets/images/case_fail.jpg">
-<img src="assets/images/case_height.jpg">
-<img src="assets/images/cable_hole_difference.jpg">
-
-</div>
-
-
+<h3>Case Issues and Adjustments</h3>
+<img src="assets/images/case_fail.jpg" alt="Case Failure">
+<img src="assets/images/case_height.jpg" alt="Case Height Adjustment">
+<img src="assets/images/cable_hole_difference.jpg" alt="Cable Hole Difference">
 
 <h2>Sensor Testing</h2>
+<img src="assets/images/sensor.jpg" alt="Sensor">
+<img src="assets/images/sensor_test.jpg" alt="Sensor Test">
+<img src="assets/images/sensor_read.jpg" alt="Sensor Reading">
 
-<!-- KEEP YOUR WRITING HERE -->
-
-<div class="gallery">
-
-<img src="assets/images/sensor.jpg">
-<img src="assets/images/sensor_test.jpg">
-<img src="assets/images/sensor_read.jpg">
-
-<img src="assets/images/sensor_celsius.jpg">
-<img src="assets/images/sensor_farenhight.jpg">
-<img src="assets/images/sensor_convert.jpg">
-
-</div>
-
-
+<h3>Temperature Conversion</h3>
+<img src="assets/images/sensor_celsius.jpg" alt="Celsius Output">
+<img src="assets/images/sensor_farenhight.jpg" alt="Fahrenheit Output">
+<img src="assets/images/sensor_convert.jpg" alt="Temperature Conversion Code">
 
 <h2>Sensor + Display Integration</h2>
-
-<!-- KEEP YOUR WRITING HERE -->
-
-<div class="gallery">
-
-<img src="assets/images/sensor_display_test.jpg">
-<img src="assets/images/sensor_display_test_2.jpg">
-
-<img src="assets/images/sensor_display_success.jpg">
-<img src="assets/images/sensor_display_success_2.jpg">
-
-<img src="assets/images/sensor_display_orientation.jpg">
-
-</div>
-
-
+<img src="assets/images/sensor_display_test.jpg" alt="Sensor Display Test">
+<img src="assets/images/sensor_display_test(2).jpg" alt="Sensor Display Test 2">
+<img src="assets/images/sensor_display_success.jpg" alt="Sensor Display Success">
+<img src="assets/images/sensor_display_success(2).jpg" alt="Sensor Display Success 2">
+<img src="assets/images/sensor_display_orientation.jpg" alt="Sensor Display Orientation">
 
 <h2>Code Development</h2>
-
-<!-- KEEP YOUR WRITING HERE -->
-
-<div class="gallery">
-
-<img src="assets/images/display_test_code.jpg">
-<img src="assets/images/finished_code.jpg">
-<img src="assets/images/mega_code.jpg">
-<img src="assets/images/sensor_test_code.jpg">
-
-</div>
-
-
+<img src="assets/images/display_test_code.jpg" alt="Display Test Code">
+<img src="assets/images/finished_code.jpg" alt="Finished Code">
+<img src="assets/images/mega_code.jpg" alt="Mega Code">
+<img src="assets/images/sensor_test_code.jpg" alt="Sensor Test Code">
 
 <h2>Project Slides</h2>
-
-<div class="gallery">
-
-<img src="assets/images/slide_1.jpg">
-<img src="assets/images/slide_2.jpg">
-
-</div>
-
-
+<img src="assets/images/slide_1.jpg" alt="Slide 1">
+<img src="assets/images/slide_2.jpg" alt="Slide 2">
 
 <!-- Fusion & STL Files with Preview Images -->
 <h2>Design & Print Files</h2>
@@ -286,29 +236,5 @@ margin-top:40px;
     </p>
     <p>
         The enclosure design went through six printed iterations over the course of two weeks. Each version revealed
-<head>
-<title>Weather Station Project</title>
 
-<style>
 
-body{
-font-family: Arial, sans-serif;
-line-height:1.6;
-margin:40px;
-}
-
-img{
-width:300px;
-margin:10px;
-border-radius:8px;
-}
-
-.gallery{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-}
-
-</style>
-
-</head>
