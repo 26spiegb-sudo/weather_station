@@ -19,7 +19,9 @@ nav {
     gap: 20px;
     justify-content: center;
 }
-
+body {
+    background-color: pink !important;
+}
 .media-grid video,
 .media-grid img {
     max-width: 400px;  /* keeps media from stretching too much */
