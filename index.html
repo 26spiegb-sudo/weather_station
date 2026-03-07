@@ -119,36 +119,6 @@
 <section id="process">
     <h2>Process / Daily Journal</h2>
 
-    <!-- Daily Journal Entries -->
-    <p>January 6: Joined the classroom and began researching possible project options. Top candidates included a phantom chessboard, home automation intruder alarm, online security camera, GPS/SMS call box, and a weather station display.</p>
-    <p>January 7: Selected the Weather Station as the final project. Began work on the task analysis.</p>
-    <p>January 8: Completed the task analysis. Started building the Gantt Chart.</p>
-    <p>January 9: Finished the Gantt Chart.</p>
-    <p>January 12: Began researching required parts and started drafting the Bill of Materials.</p>
-    <p>January 14: Completed the BOM. Used Flint, an AI tool, to verify that the selected parts matched the tutorial requirements. This process identified a better sensor option than the one originally listed.</p>
-    <p>January 15: Began writing test code for the breadboard setup. Installed the Adafruit BME280 library and the LiquidCrystal library. Set up a GitHub repository and configured it on a home computer for version control.</p>
-    <p>January 20: Finished template testing code. Began customizing the code for the new display using AI assistance — provided the template code and prompted the AI to adapt it for the new display.</p>
-    <p>January 21: Revised the code to add max/min temperature tracking and changed the display to cycle through one measurement at a time, switching every three seconds. Max/min resets every 24 hours. Created separate blink test code for the display and sensor test code, then combined them into a unified test file.</p>
-    <p>January 22: Ordered parts. Switched from the Arduino Mega to a standard Arduino Uno since only a few ports were needed. Created new test code for the Uno.</p>
-    <p>January 23: Converted all code from the Arduino Mega to the Arduino Uno. Found inspiration for the enclosure design online.</p>
-    <p>January 28: Parts arrived. Tested the Arduino Uno and ran sensor test code. Encountered a common error where the sensor was not detected — determined that header pins needed to be soldered onto the sensor before it could be used.</p>
-    <p>February 4: Soldered header pins onto the BME280 sensor. Wired the sensor to the breadboard: GND to ground, VCC to power, SDA to A4, and SCL to A5. Switched back to the Arduino Mega and moved SDA and SCL to the dedicated pins — code continued to work. Connected the display shield to the Mega and powered it on successfully.</p>
-    <p>February 5: Ran test code for the display. The screen powered on but did not respond to the code.</p>
-    <p>February 6: Continued troubleshooting the display with no success. Researched the issue on the Arduino forums and used ChatGPT to assist. Concluded that the display was incompatible with the Arduino Mega. Decided to order a different display. In the meantime, updated the code to change temperature units from Celsius to Fahrenheit and refined the max/min reset logic.</p>
-    <p>February 10: Ordered a replacement display shield. Continued troubleshooting the original 3.5" TFT display without resolution. Researched potential enclosure designs.</p>
-    <p>February 11: New display arrived. It powered on and ran code successfully, but its pin layout blocked the ports needed for the sensor.</p>
-    <p>February 18: New 5V sensor arrived. The sensor ports were still blocked by the display shield. Used AI to help rewrite the code to work around the pin conflict.</p>
-    <p>February 19: Successfully got the sensor and display working together. Refined text size and color settings using AI assistance, as the initial output was small and difficult to read.</p>
-    <p>February 23: Completed all measurements for the enclosure using calipers. Began designing the case in Fusion 360. Sent the first print to the Bambu printer.</p>
-    <p>February 24: Received the first print. The part had been printed on the wrong side, requiring supports that damaged the surface. The walls were also too thin. The cable hole and overall fit were functional. Next steps: increase wall thickness, improve the top opening to frame the display properly, and reorient the print to eliminate supports.</p>
-    <p>February 25: Updated the design with thicker walls, better electronics coverage, and correct print orientation. The display fit improved, though electronics were still partially exposed. Added a sliding rail mechanism to allow a back panel to close the case. Started the next print.</p>
-    <p>February 26: Designed the top sliding piece by copying measurements from the bottom piece to ensure the rail mechanism would fit. Printed the top piece — it was slightly too large. Identified the issue, adjusted measurements, and revised both the top and bottom pieces. Started a combined print of both parts.</p>
-    <p>February 27: The latest print came out well — the sliding mechanism worked correctly. The top piece slid in smoothly, but the bottom piece was still slightly too large, allowing the display to shift. Corrected the cable hole position and reduced the bottom piece by 0.3 inches to improve the display fit. Started a new print.</p>
-    <p>March 2: Received the updated print. The cable hole was slightly off. Lowered its position by approximately 0.1 inches and started another print.</p>
-    <p>March 3: Received the final print. The cable fit well, and the display sat noticeably flatter. Some movement in the display remains — a future improvement would be to tighten the tolerances further. Also observed that after running for 30 minutes, the temperature reading rose by 7 degrees, likely due to heat generated by the electronics inside the enclosed case. Future iterations should include ventilation holes near the sensor to improve reading accuracy. Uploaded 80 files to GitHub, including photos and videos. All images were converted from HEIC to JPEG and all videos from MOV to MP4.</p>
-    <p>March 4: Completed final documentation photos. Created a slideshow for the project presentation and built a GitHub website to host project files and documentation.</p>
-
-<!-- Project Images -->
 <h2>Project Images</h2>
 <img src="assets/images/finished_project.jpg" alt="Finished Project">
 <img src="assets/images/display_color.jpg" alt="Display Color Test">
