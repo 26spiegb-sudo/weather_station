@@ -13,6 +13,30 @@ nav {
     position: sticky;
     top: 0;
     z-index: 1000;
+    .media-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.media-grid video,
+.media-grid img {
+    max-width: 400px;  /* keeps media from stretching too much */
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+figure {
+    text-align: center;
+}
+
+figcaption {
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #555;
+}
 }
 nav a {
     color: white;
