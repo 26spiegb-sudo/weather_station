@@ -1,346 +1,426 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Ben Spiegler | Engineering Portfolio</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; line-height: 1.6; background: #f4f4f4; color: #333; }
-        nav { background: #111; color: white; display: flex; justify-content: center; padding: 15px; position: sticky; top: 0; z-index: 1000; }
-        nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: bold; }
-        nav a:hover { color: #00bfff; }
-        section { padding: 60px 20px; max-width: 1000px; margin: auto; background: white; border-radius: 8px; margin-top: 30px; }
-        h1, h2 { margin-bottom: 20px; }
-        h2 { border-bottom: 2px solid #ddd; padding-bottom: 10px; }
-        h3, h4 { margin-top: 20px; margin-bottom: 10px; }
-        ul { margin-left: 20px; margin-bottom: 20px; }
-        .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
-        .card { background: #fafafa; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.2s, box-shadow 0.2s; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
-        .card img { width: 100%; border-radius: 5px; margin-bottom: 10px; }
-        footer { text-align: center; padding: 20px; background: #111; color: white; margin-top: 40px; }
-        html { scroll-behavior: smooth; }
-        img, video { max-width: 100%; margin-bottom: 20px; border-radius: 5px; }
-        img { width: 300px; margin: 10px; border-radius: 8px; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ben Spiegler | Weather Station</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-<nav>
-    <a href="#description">Description</a>
-    <a href="#instructions">Instructions</a>
-    <a href="#process">Process</a>
-    <a href="#mistakes">Mistakes / Solutions</a>
-    <a href="#reflection">Reflection</a>
-</nav>
-
-<section id="description">
-    <h1>Weather Station Project</h1>
-    <h2>Description</h2>
-    <p>
-        This project is an Arduino-based weather station that measures and displays temperature, humidity, barometric pressure, and the maximum and minimum temperature in real time. The device uses a BME280 sensor to collect data and outputs readings to a TFT display shield mounted on an Arduino Mega. All components are in a custom-designed, 3D-printed enclosure created using Fusion 360 and printed on a Bambu printer. A successful project displays accurate, live environmental data in a clear, readable format within a clean, fully enclosed case.
-    </p>
-    <h1>
-        Link to Inspiration
-    </h1>
-    <p>
-        <a href="https://www.instructables.com/Arduino-Easy-Weather-Station-With-BME280-Sensor/" target="_blank">Arduino Easy Weather Station With BME280 Sensor by Nick Koumaris</a>
-    </p>
-    <h1>
-      How This Project Differs From the Source:  
-    </h1>
-    <p>
-The original tutorial uses an Arduino Mega paired with a basic 16x2 LCD shield that displays temperature, humidity, and pressure with minimal visual customization. This project upgraded to a 3.5" TFT color display, roughly double the screen area, which enabled significantly greater control over text size, layout, and color. Because the display hardware differed from the source, the display code was altered. Additional functionality was also added beyond the original, the station tracks and displays daily maximum and minimum temperatures, resetting automatically every 24 hours. The display also shows one reading at a time for three seconds before switching, rather than showing all data at once. The temperature was converted from Celsius to Fahrenheit. Finally, the entire electronics assembly was enclosed in a custom case designed from scratch in Fusion 360 and 3D printed which was not in the inspiration at all.
-
-    </p>
-    <h1>
-        Design Considerations
-    </h1>
-    <p>
-This project is a personal indoor weather station designed to measure and display real-time temperature, humidity, and barometric pressure. It is built for personal use and was completed as an individual project. The device is intended for indoor use and is portable, as it only requires a USB power source. It does not connect to the Internet or use Bluetooth. The enclosure was fabricated using a 3D printer. The project is powered by an Arduino Mega. Inputs come from a BME280 environmental sensor, outputs are displayed on a 3.5" TFT color display. The project differs from its inspiration by using a larger color display, custom enclosure, cycling data interface, max/min temperature tracking, and Fahrenheit output. The inspirational tutorial was published in 2017 on Instructables and remains available with current, accessible parts. Total spending came to approximately $55–60, within the $75 maximum. The enclosure measures approximately 5" long, 4" high, and 2" wide. Materials used include an Arduino Mega, BME280 sensor, TFT display shield, jumper wires, solder, and PLA filament. The BOM spreadsheet has been completed and linked below. All tools required, soldering iron, calipers, and 3D printer are found in the Fab Lab. Electronics are concealed within the custom 3D-printed enclosure, with only the display visible through the front opening.
-    </p>
-</section>
-
-<section id="instructions">
-    <h2>Instructions</h2>
-
-    <h3>Materials / BOM</h3>
-    <p>
-          <a href="https://docs.google.com/spreadsheets/d/1Sp4i9KZTO3Qc2L2ubeQA5-myLgPyZhsYsh-Oxb2Bu1k/edit?usp=sharing" target="_blank">Bill of Materials</a>
-    </p>
-    <ul>
-        <li>Arduino Mega / Uno - $22.99</li>
-        <li>BME280 Sensor - $11.99</li>
-        <li>3.5" TFT Display Shield - $18.49</li>
-        <li>3D-Printed Enclosure</li>
-        <li>Jumper Wires, Breadboard, Soldering Supplies</li>
+  <!-- NAV -->
+  <nav>
+    <a class="nav-brand" href="#">Ben Spiegler</a>
+    <ul class="nav-links">
+      <li><a href="#description">Description</a></li>
+      <li><a href="#instructions">Instructions</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#mistakes">Mistakes</a></li>
+      <li><a href="#reflection">Reflection</a></li>
     </ul>
+  </nav>
 
-    <h3>Tools & Equipment</h3>
-    <h4>Software Tools</h4>
-    <p>
-      Arduino IDE was used to write, test, and upload all code to the Arduino Mega. Fusion 360 was used to design the custom 3D-printed enclosure, with calipers used to take precise measurements of the electronics before modeling. Bambu slicer software was used to prepare and send print files to the Bambu 3D printer. GitHub was used for version control and to store all project files, including code, design files, photos, and videos. Flint ai was used during the research phase to verify that selected parts matched the project requirements. ChatGPT was used throughout the project to assist with troubleshooting code and display issues.
-    </p>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-label">Senior Engineering Capstone</div>
+    <h1>Weather<br /><span>Station</span></h1>
+    <p class="hero-desc">An Arduino-based environmental monitoring device measuring temperature, humidity, and barometric pressure — housed in a custom 3D-printed enclosure.</p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-value">9</span>
+        <span class="stat-label">Print Iterations</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">$55</span>
+        <span class="stat-label">Total Cost</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">80+</span>
+        <span class="stat-label">Files on GitHub</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">3</span>
+        <span class="stat-label">Sensors Ordered</span>
+      </div>
+    </div>
+  </div>
 
-    <h4>Hand Tools & Fab Lab Equipment</h4>
-    <p>
-        A soldering iron was used to solder header pins onto the BME280 sensor. Calipers were used to measure component dimensions for accurate enclosure design. A Bambu 3D printer was used to fabricate all enclosure parts. A laptop was used for all software work, coding, and file management. A breadboard was used during early testing phases to verify individual components before final assembly.
-    </p>
-    <h1>
-        Original Plan
-    </h1>
-    <p>
-        The project was organized into different parts. It began with planning, selecting the project, completing a task analysis, building a Gantt Chart, researching parts, and finalizing the BOM. From there, the focus shifted to hardware, wiring the components, writing test code to verify everything functioned correctly, and resolving any sensor or display issues that emerged. Once the hardware was confirmed working, the next steps were soldering the connections and developing the full code, covering temperature, humidity, air pressure, and max/min tracking. The final phases covered the enclosure, researching and brainstorming design options, modeling and 3D printing the case in Fusion 360. The last part of the plan was a round of error fixes and the creation of a final presentation.
-    </p>
+  <main>
 
-    <h1>
-        Changes from Plan
-    </h1>
-    <p>
-        The project followed the overall structure of the plan but changed in a few areas. The testing of the hardware components was a little later because their parts took a while to arrive. The display happened when the original TFT display failed to work with the Arduino Mega. This was not planned for and required ordering a replacement and adding unplanned troubleshooting time. Similarly, the 3D printing phase extended beyond the planned window, requiring six printed iterations through early March rather than concluding by February 23. The error fixing phase merged with the printing phase because enclosure issues were resolved together. Despite these delays, the presentation and final documentation were completed on time by March 4.
-    </p>
-    <h1>
-        Gantt Chart
-    </h1>
-    <p>
-        <a href="https://docs.google.com/spreadsheets/d/1XsXTTOMjxTwSaiCBNV_YvjuGBJFubDaXWsGdtjpZGtE/edit?usp=sharing" target="_blank">Gantt Chart</a>
-    </p>
+    <!-- DESCRIPTION -->
+    <section id="description">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <h2>Description</h2>
+      </div>
 
-   
-</section>
+      <div class="card">
+        <p>This project is an Arduino-based weather station that measures and displays temperature, humidity, barometric pressure, and the maximum and minimum temperature in real time. The device uses a BME280 sensor to collect data and outputs readings to a TFT display shield mounted on an Arduino Mega. All components are housed in a custom-designed, 3D-printed enclosure created using Fusion 360 and printed on a Bambu printer. A successful project displays accurate, live environmental data in a clear, readable format within a clean, fully enclosed case.</p>
+      </div>
 
-<section id="process">
- <h3>January 6</h3>
-  <p>Joined the classroom and researched possible project options. Top candidates included a phantom chessboard, home automation intruder alarm, online security camera, GPS/SMS call box, and a weather station display.</p>
+      <h3>Inspiration &amp; Attribution</h3>
+      <div class="inspiration-block">
+        <div class="source-label">Original Source — Instructables</div>
+        <a class="source-title" href="https://www.instructables.com/Arduino-Easy-Weather-Station-With-BME280-Sensor/" target="_blank" rel="noopener">Arduino Easy Weather Station With BME280 Sensor — Nick Koumaris</a>
+      </div>
 
-  <h3>January 7</h3>
-  <p>Selected the weather station as the final project and began the task analysis.</p>
+      <h3>How This Project Differs From the Source</h3>
+      <div class="diff-block">
+        <div class="diff-col original">
+          <div class="diff-col-label">Original Tutorial</div>
+          <ul>
+            <li>Basic 16x2 LCD shield</li>
+            <li>All readings shown simultaneously</li>
+            <li>Celsius output only</li>
+            <li>No max/min tracking</li>
+            <li>No enclosure</li>
+            <li>Published 2017</li>
+          </ul>
+        </div>
+        <div class="diff-col modified">
+          <div class="diff-col-label">This Project</div>
+          <ul>
+            <li>3.5" TFT color display (2× screen area)</li>
+            <li>Cycles one reading every 3 seconds</li>
+            <li>Fahrenheit output</li>
+            <li>Max/min tracking with 24hr reset</li>
+            <li>Custom Fusion 360 enclosure, 3D printed</li>
+            <li>Fully rewritten display code</li>
+          </ul>
+        </div>
+      </div>
 
-  <h3>January 8</h3>
-  <p>Completed the task analysis and started building the Gantt Chart.</p>
+      <h3>Design Considerations</h3>
+      <div class="card">
+        <p>This project is a personal indoor weather station designed to measure and display real-time temperature, humidity, and barometric pressure. It is built for personal use and was completed as an individual project. The device is intended for indoor use and is portable, as it only requires a USB power source. It does not connect to the Internet or use Bluetooth. The enclosure was fabricated using a 3D printer; no vinyl cutter, laser cutter, or CNC machine was used. The project is powered by an Arduino Mega. Inputs come from a BME280 environmental sensor; outputs are displayed on a 3.5" TFT color display.</p>
+        <p>The inspirational tutorial was published in 2017 on Instructables and remains available with current, accessible parts. Total spending came to approximately $55–60, within the $75 maximum. The enclosure measures approximately 5" long, 4" high, and 2" wide. Materials used include an Arduino Mega, BME280 sensor, TFT display shield, jumper wires, solder, and PLA filament. All tools required — soldering iron, calipers, and 3D printer — are found in the Fab Lab. Electronics are concealed within the custom 3D-printed enclosure, with only the display visible through the front opening.</p>
+      </div>
+    </section>
 
-  <h3>January 9</h3>
-  <p>Finished the Gantt Chart.</p>
+    <!-- INSTRUCTIONS -->
+    <section id="instructions">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2>Instructions</h2>
+      </div>
 
-  <h3>January 12</h3>
-  <p>Began researching required parts and started drafting the Bill of Materials.</p>
+      <h3>Materials / Bill of Materials</h3>
+      <a href="https://docs.google.com/spreadsheets/d/1Sp4i9KZTO3Qc2L2ubeQA5-myLgPyZhsYsh-Oxb2Bu1k/edit?usp=sharing" target="_blank">View Full BOM Spreadsheet ↗</a>
+      <table class="bom-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Description</th>
+            <th>Vendor</th>
+            <th>Part No.</th>
+            <th>Qty</th>
+            <th>Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Arduino Mega with USB Cable</td><td>Amazon</td><td>B01H4ZLZLQ</td><td>1</td><td>$22.99</td></tr>
+          <tr><td>2</td><td>BME280 Temperature, Humidity &amp; Pressure Sensor (5V)</td><td>Amazon</td><td>B0DHPCFXCK</td><td>1</td><td>$11.99</td></tr>
+          <tr><td>3</td><td>3.5" TFT Display Shield</td><td>Amazon</td><td>B0DLMV7NTK</td><td>1</td><td>$18.49</td></tr>
+          <tr><td>4</td><td>Jumper Wires</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>5</td><td>3D Printer Filament (PLA)</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>6</td><td>Soldering Tools &amp; Solder</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td colspan="5">Total</td><td>$53.47</td></tr>
+        </tfoot>
+      </table>
 
-  <h3>January 14</h3>
-  <p>Completed the BOM. Used Flint, an AI tool, to verify that selected parts matched the tutorial requirements — this process identified a better sensor option than originally listed.</p>
+      <h3>Tools &amp; Equipment</h3>
+      <h4>Software Tools</h4>
+      <div class="tool-grid">
+        <span class="tool-tag">Arduino IDE</span>
+        <span class="tool-tag">Fusion 360</span>
+        <span class="tool-tag">Bambu Slicer</span>
+        <span class="tool-tag">GitHub</span>
+        <span class="tool-tag">ChatGPT</span>
+        <span class="tool-tag">Flint AI</span>
+      </div>
+      <p>Arduino IDE was used to write, test, and upload all code to the Arduino Mega. Fusion 360 was used to design the custom 3D-printed enclosure, with calipers used to take precise measurements before modeling. Bambu slicer software prepared and sent print files to the Bambu printer. GitHub managed version control and stored all project files. Flint AI verified BOM parts against tutorial requirements. ChatGPT assisted with troubleshooting code and display issues throughout the project.</p>
 
-  <h3>January 15</h3>
-  <p>Began writing test code for the breadboard setup. Installed the Adafruit BME280 and LiquidCrystal libraries, and configured a GitHub repository on both school and home computers.</p>
+      <h4>Hand Tools &amp; Fab Lab Equipment</h4>
+      <div class="tool-grid">
+        <span class="tool-tag">Soldering Iron</span>
+        <span class="tool-tag">Calipers</span>
+        <span class="tool-tag">Bambu 3D Printer</span>
+        <span class="tool-tag">Laptop</span>
+      </div>
+      <p>A soldering iron was used to solder header pins onto the BME280 sensor. Calipers measured component dimensions for accurate enclosure design. A Bambu 3D printer fabricated all enclosure parts. A laptop handled all software work, coding, and file management. A breadboard was used during early testing phases only.</p>
 
-  <h3>January 20</h3>
-  <p>Finished the template testing code and began customizing it for the new display.</p>
+      <h3>Arduino Code Files</h3>
+      <div class="arduino-files">
+        <div class="arduino-file">
+          <span class="arduino-file-name">spiegler_arduinouno_test</span>
+          <span class="arduino-file-desc">Testing Arduino Mega connectivity</span>
+        </div>
+        <div class="arduino-file">
+          <span class="arduino-file-name">spiegler_blink_code</span>
+          <span class="arduino-file-desc">Testing display works</span>
+        </div>
+        <div class="arduino-file">
+          <span class="arduino-file-name">spiegler_combinedblink_code</span>
+          <span class="arduino-file-desc">Testing display and sensor work together</span>
+        </div>
+        <div class="arduino-file">
+          <span class="arduino-file-name">spiegler_finishedtemplate_code</span>
+          <span class="arduino-file-desc">Final finished code</span>
+        </div>
+        <div class="arduino-file">
+          <span class="arduino-file-name">spiegler_sensortest_code</span>
+          <span class="arduino-file-desc">Testing sensor readings</span>
+        </div>
+      </div>
 
-  <h3>January 21</h3>
-  <p>Revised the code to add max/min temperature tracking and redesigned the display to cycle through one measurement at a time, switching every three seconds. The max/min resets automatically every 24 hours. Also created separate test files for the display and sensor, then combined them into a single unified test.</p>
+      <h3>Design &amp; Print Files</h3>
+      <h4>Fusion 360 Files</h4>
+      <ul class="file-list">
+        <li><a href="assets/fusion/first_test_print_Ben.f3d">first_test_print_Ben.f3d</a></li>
+        <li><a href="assets/fusion/first_test_print_Ben_4.f3d">first_test_print_Ben_4.f3d</a></li>
+        <li><a href="assets/fusion/first_test_print_Ben_7.f3d">first_test_print_Ben_7.f3d</a></li>
+        <li><a href="assets/fusion/first_test_print_Ben_8.f3d">first_test_print_Ben_8.f3d</a></li>
+        <li><a href="assets/fusion/first_test_print_Ben_9.f3d">first_test_print_Ben_9.f3d</a></li>
+        <li><a href="assets/fusion/first_test_print_Ben_10.f3d">first_test_print_Ben_10.f3d</a></li>
+      </ul>
+      <h4>STL Files</h4>
+      <ul class="file-list">
+        <li><a href="assets/fusion/first_test_print_Ben_2.stl">first_test_print_Ben_2.stl</a></li>
+        <li><a href="assets/fusion/first_test_print_Ben_3.stl">first_test_print_Ben_3.stl</a></li>
+        <li><a href="assets/fusion/first_test_print_Ben_5.stl">first_test_print_Ben_5.stl</a></li>
+        <li><a href="assets/fusion/first_test_print_Ben_6.stl">first_test_print_Ben_6.stl</a></li>
+        <li><a href="assets/fusion/first_test_print_Ben_6_base.stl">first_test_print_Ben_6_base.stl</a></li>
+      </ul>
+    </section>
 
-  <h3>January 22</h3>
-  <p>Ordered parts. Switched from the Arduino Mega to an Arduino Uno since only a few ports were needed, and wrote new test code for it.</p>
+    <!-- PROCESS -->
+    <section id="process">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2>Process &amp; Documentation</h2>
+      </div>
 
-  <h3>January 23</h3>
-  <p>Converted all code from the Arduino Mega to the Arduino Uno and found inspiration for the enclosure design online.</p>
+      <h3>Project Summary</h3>
+      <div class="card">
+        <p>The weather station project began with a research phase in early January, during which project options were evaluated, a task analysis was completed, a Gantt Chart was developed, and a Bill of Materials was assembled with AI-assisted part verification. Code development followed, with libraries installed, test code written for the sensor and display individually, and a combined working version produced with features including cycling measurements, Fahrenheit output, and a 24-hour max/min temperature reset. When parts arrived in late January, soldering the header pins onto the BME280 sensor was required before testing could begin. The most significant setback came in early February when the original 3.5" TFT display proved incompatible with the Arduino Mega, requiring a replacement to be ordered; the new display then introduced a pin conflict with the sensor, which was resolved through code rewrites. With all electronics functioning together by mid-February, attention shifted to the enclosure. Six iterations of a custom case were designed in Fusion 360, printed on a Bambu 3D printer, and refined over two weeks. The project concluded in early March with final assembly, documentation, and upload of 80+ files to GitHub.</p>
+      </div>
 
-  <h3>January 28</h3>
-  <p>Parts arrived. Tested the Arduino Uno and ran the sensor code, but encountered an error where the sensor was not detected. Determined that the header pins needed to be soldered before testing could proceed.</p>
+      <h3>Original Plan</h3>
+      <div class="card">
+        <p>The project was organized into nine sequential phases. It began with planning — selecting the project, completing a task analysis, building a Gantt Chart, researching parts, and finalizing the BOM. From there, the focus shifted to hardware: wiring the components, writing test code to verify everything functioned correctly, and resolving any sensor or display issues that emerged. Once the hardware was confirmed working, the next steps were soldering the connections and developing the full code, covering temperature, humidity, air pressure, and max/min tracking. The final phases covered the enclosure — researching and brainstorming design options, modeling and 3D printing the case in Fusion 360 — before concluding with error fixes and the creation of a final presentation.</p>
+        <p><a href="https://docs.google.com/spreadsheets/d/1XsXTTOMjxTwSaiCBNV_YvjuGBJFubDaXWsGdtjpZGtE/edit?usp=sharing" target="_blank">View Gantt Chart ↗</a></p>
+      </div>
 
-  <h3>February 4</h3>
-  <p>Soldered header pins onto the BME280 sensor and wired it to the breadboard. GND to ground, VCC to power, SDA to A4, and SCL to A5. Switched back to the Arduino Mega and moved SDA and SCL to their dedicated pins; the code continued to work. Connected the display shield and powered it on successfully.</p>
+      <h3>How the Project Evolved</h3>
+      <div class="card">
+        <p>The project followed the overall structure of the plan but deviated in a few key areas. Parts took longer to arrive than anticipated, delaying the physical build phase. A major unplanned setback occurred when the original TFT display failed to work with the Arduino Mega, requiring a replacement to be ordered and adding roughly a week of unplanned troubleshooting time. Similarly, the 3D printing phase extended beyond the planned window, requiring nine printed iterations through early March rather than concluding by February 23. The error-fixing phase effectively merged with the printing phase as enclosure issues were identified and resolved simultaneously. Despite these delays, the presentation and final documentation were completed on time by March 4.</p>
+      </div>
 
-  <h3>February 5</h3>
-  <p>Ran test code for the display. The screen powered on but did not respond to any commands.</p>
+      <h3>Important Decisions</h3>
+      <div class="card">
+        <p>Early on, the Arduino Mega was swapped out for an Arduino Uno since the project required only a few ports, making the simpler board a more practical choice. The display was upgraded from a basic LCD to a 3.5" TFT color screen because it offered significantly better readability and visual quality. When the original TFT display proved incompatible with the Arduino Mega, the decision was made to order a replacement rather than continue troubleshooting an unsolvable hardware conflict — accepting the delay in order to keep the project moving forward. When the new display blocked the original sensor's pins, a second replacement sensor was ordered, this time a 5V version compatible with the remaining available ports. The interface was redesigned to cycle through one measurement at a time every three seconds to keep the screen clean and readable. Max/min temperature tracking with a 24-hour reset was added to increase the practical usefulness of the device. Finally, the decision to design a custom enclosure from scratch in Fusion 360 was made to produce a finished, professional-looking product.</p>
+      </div>
 
-  <h3>February 6</h3>
-  <p>Continued troubleshooting the display without success. Researched the issue on Arduino forums and used ChatGPT for additional help, ultimately concluding that the display was incompatible with the Arduino Mega. Decided to order a replacement. In the meantime, updated the code to output Fahrenheit instead of Celsius and refined the max/min reset logic.</p>
+      <h3>Daily Journal</h3>
+      <div class="journal-entry"><span class="journal-date">Jan 6</span><p>Joined the classroom and researched possible project options. Top candidates included a phantom chessboard, home automation intruder alarm, online security camera, GPS/SMS call box, and a weather station display.</p></div>
+      <div class="journal-entry"><span class="journal-date">Jan 7</span><p>Selected the weather station as the final project and began the task analysis.</p></div>
+      <div class="journal-entry"><span class="journal-date">Jan 8</span><p>Completed the task analysis and started building the Gantt Chart.</p></div>
+      <div class="journal-entry"><span class="journal-date">Jan 9</span><p>Finished the Gantt Chart.</p></div>
+      <div class="journal-entry"><span class="journal-date">Jan 12</span><p>Began researching required parts and started drafting the Bill of Materials.</p></div>
+      <div class="journal-entry"><span class="journal-date">Jan 14</span><p>Completed the BOM. Used Flint, an AI tool, to verify that selected parts matched the tutorial requirements — this process identified a better sensor option than originally listed.</p></div>
+      <div class="journal-entry"><span class="journal-date">Jan 15</span><p>Began writing test code for the breadboard setup. Installed the Adafruit BME280 and LiquidCrystal libraries, and configured a GitHub repository on both school and home computers.</p></div>
+      <div class="journal-entry"><span class="journal-date">Jan 20</span><p>Finished the template testing code and began customizing it for the new display using AI assistance.</p></div>
+      <div class="journal-entry"><span class="journal-date">Jan 21</span><p>Revised the code to add max/min temperature tracking and redesigned the display to cycle through one measurement at a time, switching every three seconds. The max/min resets automatically every 24 hours. Also created separate test files for the display and sensor, then combined them into a single unified test.</p></div>
+      <div class="journal-entry"><span class="journal-date">Jan 22</span><p>Ordered parts. Switched from the Arduino Mega to an Arduino Uno since only a few ports were needed, and wrote new test code for it.</p></div>
+      <div class="journal-entry"><span class="journal-date">Jan 23</span><p>Converted all code from the Arduino Mega to the Arduino Uno and found inspiration for the enclosure design online.</p></div>
+      <div class="journal-entry"><span class="journal-date">Jan 28</span><p>Parts arrived. Tested the Arduino Uno and ran the sensor code, but encountered an error where the sensor was not detected. Determined that the header pins needed to be soldered before testing could proceed.</p></div>
+      <div class="journal-entry"><span class="journal-date">Feb 4</span><p>Soldered header pins onto the BME280 sensor and wired it to the breadboard — GND to ground, VCC to power, SDA to A4, and SCL to A5. Switched back to the Arduino Mega and moved SDA and SCL to their dedicated pins; the code continued to work. Connected the display shield and powered it on successfully.</p></div>
+      <div class="journal-entry"><span class="journal-date">Feb 5</span><p>Ran test code for the display. The screen powered on but did not respond to any commands.</p></div>
+      <div class="journal-entry"><span class="journal-date">Feb 6</span><p>Continued troubleshooting the display without success. Researched the issue on Arduino forums and used ChatGPT for additional help, ultimately concluding that the display was incompatible with the Arduino Mega. Decided to order a replacement. Updated the code to output Fahrenheit and refined the max/min reset logic.</p></div>
+      <div class="journal-entry"><span class="journal-date">Feb 10</span><p>Ordered a replacement display shield and continued troubleshooting the original without resolution. Researched potential enclosure designs.</p></div>
+      <div class="journal-entry"><span class="journal-date">Feb 11</span><p>The new display arrived, powered on, and ran code successfully — however, its pin layout blocked the ports needed for the sensor.</p></div>
+      <div class="journal-entry"><span class="journal-date">Feb 18</span><p>A new 5V sensor arrived, but the pin conflict with the display shield persisted. Used AI assistance to rewrite the code and work around the issue.</p></div>
+      <div class="journal-entry"><span class="journal-date">Feb 19</span><p>Successfully got the sensor and display working together. Refined text size and color settings with AI assistance. Began taking measurements for the enclosure.</p></div>
+      <div class="journal-entry"><span class="journal-date">Feb 23</span><p>Completed all enclosure measurements using calipers, began designing the case in Fusion 360, and sent the first print to the Bambu printer.</p></div>
+      <div class="journal-entry"><span class="journal-date">Feb 24</span><p>Received the first print. Printed on the wrong side, requiring supports that damaged the surface; walls were too thin. Cable hole and overall fit were functional. Next steps: increase wall thickness, improve display opening, reorient to eliminate supports.</p></div>
+      <div class="journal-entry"><span class="journal-date">Feb 25</span><p>Updated design with thicker walls, better electronics coverage, and correct print orientation. Added a sliding rail mechanism to allow a back panel to close the case.</p></div>
+      <div class="journal-entry"><span class="journal-date">Feb 26</span><p>Designed the top sliding piece using measurements copied from the bottom piece. First attempt was slightly too large; adjusted measurements and reprinted both pieces together.</p></div>
+      <div class="journal-entry"><span class="journal-date">Feb 27</span><p>Sliding mechanism worked well, but the bottom piece was slightly oversized, allowing the display to shift. Corrected the cable hole position and reduced the bottom piece by 0.3 inches.</p></div>
+      <div class="journal-entry"><span class="journal-date">Mar 2</span><p>Received the updated print. The cable hole was slightly off, lowered by approximately 0.1 inches and another print started.</p></div>
+      <div class="journal-entry"><span class="journal-date">Mar 3</span><p>Received the final print. Cable fits well; display sits noticeably flatter. Noted temperature reading rose 7° after 30 minutes — likely heat from enclosed electronics. Uploaded 80 files to GitHub, converting photos from HEIC to JPEG and videos from MOV to MP4.</p></div>
+      <div class="journal-entry"><span class="journal-date">Mar 4</span><p>Completed final documentation photos, created a presentation slideshow, and built a GitHub website to host all project files and documentation.</p></div>
 
-  <h3>February 10</h3>
-  <p>Ordered a replacement display shield and continued troubleshooting the original without resolution. Researched potential enclosure designs.</p>
+      <h3>Project Images</h3>
+      <div class="img-grid">
+        <img src="assets/images/finished_project.jpg" alt="Finished Project" />
+        <img src="assets/images/display_color.png" alt="Display Color Test" />
+        <img src="assets/images/display_test.jpg" alt="Display Test" />
+        <img src="assets/images/first_tft.jpg" alt="First TFT Test" />
+        <img src="assets/images/second_tft.jpg" alt="Second TFT Test" />
+      </div>
 
-  <h3>February 11</h3>
-  <p>The new display arrived, powered on, and ran code successfully, however, its pin layout blocked the ports needed for the sensor.</p>
+      <h3>Case Development</h3>
+      <h4>First Prototype</h4>
+      <div class="img-grid">
+        <img src="assets/images/first_case.jpg" alt="First Case" />
+        <img src="assets/images/first_case_2.jpg" alt="First Case v2" />
+      </div>
+      <h4>Second Prototype</h4>
+      <div class="img-grid">
+        <img src="assets/images/second_case.jpg" alt="Second Case" />
+        <img src="assets/images/second_case_2.jpg" alt="Second Case v2" />
+        <img src="assets/images/second_case_3.jpg" alt="Second Case v3" />
+      </div>
+      <h4>Fourth Prototype</h4>
+      <div class="img-grid">
+        <img src="assets/images/fourth_case.jpg" alt="Fourth Case" />
+        <img src="assets/images/fourth_case_2.jpg" alt="Fourth Case v2" />
+        <img src="assets/images/fourth_case_3.jpg" alt="Fourth Case v3" />
+      </div>
+      <h4>Fifth Prototype</h4>
+      <div class="img-grid">
+        <img src="assets/images/fifth_case.jpg" alt="Fifth Case" />
+        <img src="assets/images/fifth_case_2.jpg" alt="Fifth Case v2" />
+      </div>
+      <h4>Seventh Prototype</h4>
+      <div class="img-grid">
+        <img src="assets/images/seventh_case.jpg" alt="Seventh Case" />
+        <img src="assets/images/seventh_case_2.jpg" alt="Seventh Case v2" />
+      </div>
+      <h4>Eighth Prototype</h4>
+      <div class="img-grid">
+        <img src="assets/images/8th_case.jpg" alt="Eighth Case" />
+        <img src="assets/images/8th_case_2.jpg" alt="Eighth Case v2" />
+      </div>
+      <h4>Ninth Prototype</h4>
+      <div class="img-grid">
+        <img src="assets/images/9th_case.jpg" alt="Ninth Case" />
+      </div>
+      <h4>Case Issues &amp; Adjustments</h4>
+      <div class="img-grid">
+        <img src="assets/images/case_fail.jpg" alt="Case Failure" />
+        <img src="assets/images/case_height.jpg" alt="Case Height Adjustment" />
+        <img src="assets/images/cable_hole_difference.jpg" alt="Cable Hole Difference" />
+      </div>
 
-  <h3>February 18</h3>
-  <p>A new 5V sensor arrived, but the pin conflict with the display shield persisted. Used AI assistance to rewrite the code and work around the issue.</p>
+      <h3>Sensor Testing</h3>
+      <div class="img-grid">
+        <img src="assets/images/sensor.jpg" alt="Sensor" />
+        <img src="assets/images/sensor_test.jpg" alt="Sensor Test" />
+        <img src="assets/images/sensor_read.png" alt="Sensor Reading" />
+      </div>
+      <h4>Temperature Conversion</h4>
+      <div class="img-grid">
+        <img src="assets/images/sensor_celsuis.png" alt="Celsius Output" />
+        <img src="assets/images/sensor_farenhight.png" alt="Fahrenheit Output" />
+        <img src="assets/images/sensor_convert.png" alt="Conversion Code" />
+      </div>
 
-  <h3>February 19</h3>
-  <p>Successfully got the sensor and display working together. Refined text size and color settings with AI assistance, as the initial output was small and difficult to read. Began taking measurements for the enclosure.</p>
+      <h3>Sensor + Display Integration</h3>
+      <div class="img-grid">
+        <img src="assets/images/sensor_display_test.jpg" alt="Sensor Display Test" />
+        <img src="assets/images/sensor_display_test_2.jpg" alt="Sensor Display Test 2" />
+        <img src="assets/images/sensor_display_success.jpg" alt="Sensor Display Success" />
+        <img src="assets/images/sensor_display_success_2.jpg" alt="Sensor Display Success 2" />
+        <img src="assets/images/sensor_display_orientation.jpg" alt="Sensor Display Orientation" />
+      </div>
 
-  <h3>February 23</h3>
-  <p>Completed all enclosure measurements using calipers, began designing the case in Fusion 360, and sent the first print to the Bambu printer.</p>
+      <h3>Code Development</h3>
+      <div class="img-grid">
+        <img src="assets/images/display_test_code.png" alt="Display Test Code" />
+        <img src="assets/images/finished_code.png" alt="Finished Code" />
+        <img src="assets/images/mega_code.png" alt="Mega Code" />
+        <img src="assets/images/sensor_test_code.png" alt="Sensor Test Code" />
+      </div>
 
-  <h3>February 24</h3>
-  <p>Received the first print. It had been printed on the wrong side, requiring supports that damaged the surface, and the walls were too thin. The cable hole and overall fit were functional. Next steps, increase wall thickness, improve the display opening, and reorient the print to eliminate the need for supports.</p>
+      <h3>Fusion 360 Design</h3>
+      <div class="img-grid">
+        <img src="assets/fusion/fusion360_design.jpg" alt="Fusion 360 Design" />
+        <img src="assets/fusion/sliding_mechanism.jpg" alt="Sliding Mechanism" />
+      </div>
 
-  <h3>February 25</h3>
-  <p>Updated the design with thicker walls, better electronics coverage, and correct print orientation. The display fit improved but electronics were still partially exposed. Added a sliding rail mechanism to allow a back panel to close the case and started the next print.</p>
+      <h3>Project Videos</h3>
+      <div class="video-grid">
+        <div class="video-item">
+          <video controls><source src="assets/videos/display_power.mp4" type="video/mp4"></video>
+          <div class="video-label">Display Powering On</div>
+        </div>
+        <div class="video-item">
+          <video controls><source src="assets/videos/display_sensor_success.mp4" type="video/mp4"></video>
+          <div class="video-label">Display Showing Sensor Data</div>
+        </div>
+        <div class="video-item">
+          <video controls><source src="assets/videos/display_test.mp4" type="video/mp4"></video>
+          <div class="video-label">Display Changing Colors</div>
+        </div>
+        <div class="video-item">
+          <video controls><source src="assets/videos/final_display.mp4" type="video/mp4"></video>
+          <div class="video-label">Finished Project</div>
+        </div>
+        <div class="video-item">
+          <video controls><source src="assets/videos/full_display.mp4" type="video/mp4"></video>
+          <div class="video-label">Display Working Inside Case</div>
+        </div>
+        <div class="video-item">
+          <video controls><source src="assets/videos/slide_open.mp4" type="video/mp4"></video>
+          <div class="video-label">Case Sliding Open</div>
+        </div>
+        <div class="video-item">
+          <video controls><source src="assets/videos/slide_close.mp4" type="video/mp4"></video>
+          <div class="video-label">Case Sliding Closed</div>
+        </div>
+      </div>
 
-  <h3>February 26</h3>
-  <p>Designed the top sliding piece using measurements copied from the bottom piece. The first attempt was slightly too large, so measurements were adjusted and both pieces were reprinted together.</p>
+      <h3>Presentation Slides</h3>
+      <div class="img-grid">
+        <img src="assets/images/slide_1.jpg" alt="Slide 1" />
+        <img src="assets/images/slide_2.jpg" alt="Slide 2" />
+      </div>
+    </section>
 
-  <h3>February 27</h3>
-  <p>The sliding mechanism worked well, but the bottom piece was still slightly oversized, allowing the display to shift. Corrected the cable hole position, reduced the bottom piece by 0.3 inches, and started a new print.</p>
+    <!-- MISTAKES & SOLUTIONS -->
+    <section id="mistakes">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <h2>Mistakes &amp; Solutions</h2>
+      </div>
 
-  <h3>March 2</h3>
-  <p>Received the updated print. The cable hole was slightly off, so it was lowered by approximately 0.1 inches and another print was started.</p>
+      <h3>Mistakes</h3>
+      <div class="card">
+        <p>Several mistakes occurred throughout the project that required correction. The first major error was ordering the wrong Arduino board — the Mega was initially selected but later replaced with the Uno when it became clear fewer ports were needed, resulting in wasted time rewriting code. When the original TFT display arrived and failed to work with the Mega after several days of troubleshooting, it became clear the two were simply incompatible — a compatibility check that should have been done before ordering. When the replacement display arrived, its pins blocked the sensor connections, requiring a second sensor to be ordered. On the hardware side, the sensor headers were not soldered before initial testing, causing a detection error that halted progress. In the enclosure design phase, the first print was oriented incorrectly, requiring supports that damaged the surface, and the initial wall thickness was too thin. Subsequent iterations had misaligned cable holes and imprecise tolerances that needed incremental corrections across several more prints.</p>
+      </div>
 
-  <h3>March 3</h3>
-  <p>Received the final print. The cable fit well and the display sat noticeably flatter, though some minor movement remains, a future improvement would be to tighten tolerances further. Also noted that after running for 30 minutes, the temperature reading rose by 7 degrees, likely due to heat from the enclosed electronics. Future iterations should include ventilation holes near the sensor. Uploaded 80 files to GitHub, converting all photos from HEIC to JPEG and videos from MOV to MP4.</p>
+      <h3>Solutions</h3>
+      <div class="card">
+        <p>Each challenge was resolved through a combination of research, AI assistance, and iterative testing. The Arduino board mismatch was corrected by switching to the Uno and rewriting the code to match its pin configuration. When the original display proved incompatible with the Mega, a replacement was ordered after using ChatGPT to confirm the root cause. The pin conflict between the new display and the sensor was resolved by ordering a 5V BME280 compatible with the remaining open ports. Soldering the header pins onto the sensor resolved the detection error immediately. Enclosure problems were addressed through systematic iteration — each print was examined, specific measurements were corrected in Fusion 360, and a new version was printed until the fit, wall thickness, cable routing, and sliding mechanism all met the required standard. Throughout the project, GitHub ensured that working code was always backed up before changes were made.</p>
+      </div>
+    </section>
 
-  <h3>March 4</h3>
-  <p>Completed final documentation photos, created a presentation slideshow, and built a GitHub website to host all project files and documentation.</p>
+    <!-- REFLECTION -->
+    <section id="reflection">
+      <div class="section-header">
+        <span class="section-num">05</span>
+        <h2>Reflection</h2>
+      </div>
 
-</section>
-<h1>
-    Important Decisions
-</h1>
-    <p>
-        At the start of the Arduino Mega was swapped out for an Arduino Uno since the project required only a few ports, making the Uno a more practical choice. The display was upgraded from a basic LCD to a 3.5" TFT color screen because it offered better readability and visual quality. Later in the project when the original TFT display proved incompatible with the Arduino Mega, the decision was made to order a replacement rather than continue troubleshooting an unsolvable hardware conflict. This delayed the project a few days by waiting for the new display but kept the project moving forward. Then the new display blocked the original sensor's 3v pin but left a 5v pin open. A second replacement sensor was ordered, this time a 5V version because it was compatible with the ports still open. The interface was redesigned to cycle through one measurement at a time every three seconds, rather than displaying all data simultaneously, to keep the screen clean and easy to read at a glance. Max/min temperature tracking with a 24-hour reset was added to increase the practical usefulness of the device beyond what the original tutorial offered. The decision to design a custom enclosure from scratch in Fusion 360, rather than leaving the electronics exposed, was made to create a finished, professional looking product.
-    </p>
+      <div class="card">
+        <p>This project made clear that building a functional hardware device requires far more than following a tutorial. The technical skills developed throughout — writing and troubleshooting Arduino code, soldering, CAD modeling in Fusion 360, and 3D printing — all grew significantly through the process. More than any individual skill, the project demonstrated how much of engineering involves responding to unexpected problems. The display incompatibility, pin conflicts, and enclosure iterations were not part of the original plan, but working through each one produced the most important learning of the entire project.</p>
 
-<!-- Project Images -->
-<h2>Project Images</h2>
-<img src="assets/images/finished_project.jpg" alt="Finished Project">
-<img src="assets/images/display_test.jpg" alt="Display Test">
-<img src="assets/images/first_tft.jpg" alt="First TFT Test">
-<img src="assets/images/second_tft.jpg" alt="Second TFT Test">
+        <p>Managing a project of this scale required consistent organization and planning. Maintaining a Gantt Chart and breaking the work into smaller phases was essential to staying on track. By dividing the project into manageable pieces, it became easier to identify where problems were occurring and what was working. When setbacks arose, having a record of decisions made and steps already attempted made it significantly easier to determine the right path forward.</p>
 
-<h2>Case Development</h2>
+        <p>On a personal level, this project built confidence in the ability to work through difficult problems independently. There were multiple points where issues arose unexpectedly, particularly during the display troubleshooting phase. A key takeaway was that there are many resources available when problems occur — AI tools, online forums, and the work of others in the maker community all played an important role in finding solutions. The finished project is something to be proud of — it looks professional, functions as intended, and turned out better than what was originally envisioned.</p>
 
-<h3>First Prototype</h3>
-<img src="assets/images/first_case.jpg" alt="First Case">
-<img src="assets/images/first_case_2.jpg" alt="First Case Version 2">
+        <p>Looking ahead, several improvements would strengthen the project further. Adding ventilation holes around the BME280 sensor would allow better airflow and improve measurement accuracy, as heat from the enclosed electronics was observed to raise the temperature reading noticeably after extended use. Tighter enclosure tolerances would reduce display movement. The interface also has room to improve — unused screen space could be filled with larger text and more refined colors. The most significant next step would be adding Wi-Fi connectivity via an ESP8266 module, enabling the station to log environmental data over time and push readings to a web dashboard — transforming it from a standalone display into a fully networked monitoring tool.</p>
+      </div>
+    </section>
 
-<h3>Second Prototype</h3>
-<img src="assets/images/second_case.jpg" alt="Second Case">
-<img src="assets/images/second_case_2.jpg" alt="Second Case Version 2">
-<img src="assets/images/second_case_3.jpg" alt="Second Case Version 3">
+  </main>
 
-<h3>Fourth Prototype</h3>
-<img src="assets/images/fourth_case.jpg" alt="Fourth Case">
-<img src="assets/images/fourth_case_2.jpg" alt="Fourth Case Version 2">
-<img src="assets/images/fourth_case_3.jpg" alt="Fourth Case Version 3">
+  <footer>
+    Ben Spiegler &nbsp;·&nbsp; Senior Engineering Capstone &nbsp;·&nbsp; 2025–2026
+  </footer>
 
-<h3>Fifth Prototype</h3>
-<img src="assets/images/fifth_case.jpg" alt="Fifth Case">
-<img src="assets/images/fifth_case_2.jpg" alt="Fifth Case Version 2">
-
-<h3>Seventh Prototype</h3>
-<img src="assets/images/seventh_case.jpg" alt="Seventh Case">
-<img src="assets/images/seventh_case_2.jpg" alt="Seventh Case Version 2">
-
-<h3>Eighth Prototype</h3>
-<img src="assets/images/8th_case.jpg" alt="Eighth Case">
-<img src="assets/images/8th_case_2.jpg" alt="Eighth Case Version 2">
-
-<h3>Ninth Prototype</h3>
-<img src="assets/images/9th_case.jpg" alt="Ninth Case">
-
-<h3>Case Issues and Adjustments</h3>
-<img src="assets/images/case_fail.jpg" alt="Case Failure">
-<img src="assets/images/case_height.jpg" alt="Case Height Adjustment">
-<img src="assets/images/cable_hole_difference.jpg" alt="Cable Hole Difference">
-
-<h2>Sensor Testing</h2>
-<img src="assets/images/sensor.jpg" alt="Sensor">
-<img src="assets/images/sensor_test.jpg" alt="Sensor Test">
-
-
-<h3>Temperature Conversion</h3>
-<img src="assets/images/sensor_celsuis.png" alt="Celsius Output">
-<img src="assets/images/sensor_farenhight.png" alt="Fahrenheit Output">
-
-
-<h2>Sensor + Display Integration</h2>
-<img src="assets/images/sensor_display_test.jpg" alt="Sensor Display Test">
-<img src="assets/images/sensor_display_test_2.jpg" alt="Sensor Display Test 2">
-<img src="assets/images/sensor_display_success.jpg" alt="Sensor Display Success">
-<img src="assets/images/sensor_display_success_2.jpg" alt="Sensor Display Success 2">
-<img src="assets/images/sensor_display_orientation.jpg" alt="Sensor Display Orientation">
-
-    <h3>Arduino Code Files</h3>
-<ul>
-    <li><a href="assets/code/spiegler_arduinouno_test/spiegler_arduinouno_test" target="_blank">spiegler_arduinouno_test</a></li>-testing arduino mega
-    <li><a href="assets/code/spiegler_blink_code/spiegler_blink_code" target="_blank">spiegler_blink_code</a></li>-testing display works
-    <li><a href="assets/code/spiegler_combinedblink_code/spiegler_combinedblink_code" target="_blank">spiegler_combinedblink_code</a></li>-testing display and sensor work together
-    <li><a href="assets/code/spiegler_finishedtemplate_code/spiegler_finishedtemplate_code" target="_blank">spiegler_finishedtemplate_code</a></li>-final finished code
-    <li><a href="assets/code/spiegler_sensortest_code//spiegler_sensortest_code" target="_blank">spiegler_sensortest_code</a></li>-testing sensor
-    
-
-
-<h2>Sliding Mechanism Piece</h2>
-<img src="assets/images/slide_1.jpg" alt="Slide 1">
-<img src="assets/images/slide_work.jpg" alt=Slide 2">
-
-<!-- Fusion & STL Files with Preview Images -->
-<h2>Design & Print Files</h2>
-
-<h3>Fusion 360 Files</h3>
-<img src="assets/fusion/fusion360_design.jpg" alt="Fusion 360 Design">
-    <img src="assets/fusion/sliding_mechanism.jpg" alt="Sliding Mechanism">
-<ul>
-    <li><a href="assets/fusion/first_test_print_Ben.f3d" target="_blank">first_test_print_Ben.f3d</a></li>
-    <li><a href="assets/fusion/first_test_print_Ben_10.f3d" target="_blank">first_test_print_Ben_10.f3d</a></li>
-    <li><a href="assets/fusion/first_test_print_Ben_4.f3d" target="_blank">first_test_print_Ben_4.f3d</a></li>
-    <li><a href="assets/fusion/first_test_print_Ben_7.f3d" target="_blank">first_test_print_Ben_7.f3d</a></li>
-    <li><a href="assets/fusion/first_test_print_Ben_8.f3d" target="_blank">first_test_print_Ben_8.f3d</a></li>
-    <li><a href="assets/fusion/first_test_print_Ben_9.f3d" target="_blank">first_test_print_Ben_9.f3d</a></li>
-</ul>
-
-<h3>STL Files</h3>
-
-<ul>
-    <li><a href="assets/fusion/first_test_print_Ben_2.stl" target="_blank">first_test_print_Ben_2.stl</a></li>
-    <li><a href="assets/fusion/first_test_print_Ben_3.stl" target="_blank">first_test_print_Ben_3.stl</a></li>
-    <li><a href="assets/fusion/first_test_print_Ben_5.stl" target="_blank">first_test_print_Ben_5.stl</a></li>
-    <li><a href="assets/fusion/first_test_print_Ben_6.stl" target="_blank">first_test_print_Ben_6.stl</a></li>
-    <li><a href="assets/fusion/first_test_print_Ben_6_base.stl" target="_blank">first_test_print_Ben_6_base.stl</a></li>
-</ul>
-
-<!-- Project Videos -->
-<h2>Project Videos</h2>
-<video controls><source src="assets/videos/display_power.mp4" type="video/mp4"></video>-display powering on
-<video controls><source src="assets/videos/display_sensor_success.mp4" type="video/mp4"></video>-display showing sensor data
-<video controls><source src="assets/videos/display_test.mp4" type="video/mp4"></video>-display changing colors
-<video controls><source src="assets/videos/final_display.mp4" type="video/mp4"></video>-finished project
-<video controls><source src="assets/videos/full_display.mp4" type="video/mp4"></video>display working inside case
-<video controls><source src="assets/videos/slide_open.mp4" type="video/mp4"></video>-box sliding open
-<video controls><source src="assets/videos/slide_close.mp4" type="video/mp4"></video>-box sliding close
-
-</section>
-
-</section>
-
-<section id="mistakes">
-    <h2>Mistakes
-    </h2>
-    <p>
-There were many mistakes throughout the project that required correction. The first major error was ordering the wrong Arduino board, the Mega was initially selected but later replaced with the Uno when it became clear fewer ports were needed, resulting in wasted time rewriting code for the new board. When the original TFT display arrived and failed to work with the Mega after several days of troubleshooting, it became clear the two were simply incompatible. The replacement display arrived and its pins blocked the sensor connections which prevented the sensor from working. On the hardware side, the sensor headers were not soldered before initial testing, causing a delay because the sensor could not be tested. In regards to the enclosure, many revisions were made to correct the dimensions, sliding mechanism, and functionality of the case.
-    </p>
-    <h1>
-        Solutions
-    </h1>
-    <p>
-        The Arduino board mismatch was corrected by switching to the Uno and rewriting the code to match its pin configuration. When the original display proved incompatible with the Mega, a replacement display shield was ordered after using ChatGPT to confirm the root cause of the issue. The pin conflict between the new display and the sensor was resolved by ordering a 5V version of the BME280 to allow the sensor to plug into the mega. Soldering the header pins onto the sensor resolved the issue of not being able to run code to the sensor. Enclosure problems were solved through multiple revisions. Each print was examined, specific measurements were corrected in Fusion 360, and a new version was printed until the prototype was corrected.
-    </p>
-    <h1>
-        Reflection
-    </h1>
-    <p>
-This project made clear that building a functional hardware device requires far more than following a tutorial. The technical skills developed throughout including writing and troubleshooting Arduino code, soldering, CAD modeling in Fusion 360, and 3D printing. More than any individual skill, the project demonstrated how much of engineering involves responding to unexpected problems. The display incompatibility, pin conflicts, and enclosure iterations were not part of the original plan, but working through each one produced the most important learning of the entire project.
-    </p>
-    <p>
-Managing a project of this scale required consistent organization and planning. Maintaining a Gantt Chart and breaking the work into smaller phases was essential to staying on track. By dividing the project into manageable pieces, it became easier to identify where problems were occurring and what was working. When problems happened, having a record of decisions made and steps already attempted made it significantly easier to determine the right path forward.
-    </p>
-    <p>
-On a personal level, this project built confidence in the ability to work through difficult problems independently. There were multiple points where issues arose unexpectedly, particularly during the display troubleshooting phase. A key takeaway was that there are many resources available when problems occur, AI tools, online forums, and other peoples work in the maker community all played an important role in finding solutions. I am proud of the finished project because it looks professional, functions as intended, and turned out better than what I originally envisioned. 
-    </p>
-    <p>
-Looking ahead, several improvements would strengthen the project further. Adding ventilation holes around the BME280 sensor would allow better airflow and improve measurement accuracy, as heat from the enclosed electronics was observed to raise the temperature reading noticeably after extended use. Tighter enclosure dimensions would reduce movement of the display. The display could also be improved by making it more visually appealing. There is unused space on the screen that could be filled with larger text and more visually refined colors. Additionally if this project wanted to be mass produced 3d printing settings could be improved to improve the cost and time efficiency.
-
-    </p>
-
-
+</body>
+</html>
