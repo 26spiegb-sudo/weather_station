@@ -20,7 +20,12 @@ nav {
     justify-content: center;
 }
 body {
-    background-color: pink !important;
+  background-color: lightblue !important;
+}
+
+nav {
+  background-color: red !important;
+}
 }
     <style>
 
