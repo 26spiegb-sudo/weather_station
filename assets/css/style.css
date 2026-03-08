@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
 
 :root {
-  --bg: #0a0a0c;
-  --bg-card: #111116;
-  --bg-elevated: #18181f;
-  --border: #2a2a35;
+  --bg: #141418;
+  --bg-card: #1e1e26;
+  --bg-elevated: #262630;
+  --border: #35354a;
   --accent: #00d4ff;
   --accent-dim: rgba(0, 212, 255, 0.12);
-  --text-primary: #f0f0f5;
-  --text-secondary: #8888a0;
-  --text-muted: #4a4a60;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0c8;
+  --text-muted: #6a6a85;
   --success: #00ff9d;
 }
 
@@ -18,8 +18,8 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: 'DM Sans', sans-serif;
-  font-weight: 300;
-  line-height: 1.7;
+  font-weight: 400;
+  line-height: 1.8;
   font-size: 16px;
   background: var(--bg);
   color: var(--text-primary);
@@ -28,7 +28,7 @@ body {
 
 /* NAV */
 nav {
-  background: rgba(10, 10, 12, 0.92);
+  background: rgba(20, 20, 24, 0.95);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
   display: flex;
@@ -66,14 +66,14 @@ section {
   transition: border-color 0.2s;
 }
 
-section:hover { border-color: rgba(0, 212, 255, 0.15); }
+section:hover { border-color: rgba(0, 212, 255, 0.2); }
 
 h1 {
   font-family: 'Syne', sans-serif;
   font-weight: 800;
   font-size: 2.2rem;
   letter-spacing: -0.02em;
-  color: var(--text-primary);
+  color: #ffffff;
   margin-bottom: 1.5rem;
 }
 
@@ -82,7 +82,7 @@ h2 {
   font-weight: 700;
   font-size: 1.4rem;
   letter-spacing: -0.01em;
-  color: var(--text-primary);
+  color: #ffffff;
   border-bottom: 1px solid var(--border);
   padding-bottom: 0.6rem;
   margin: 2rem 0 1rem;
@@ -111,6 +111,8 @@ p {
   color: var(--text-secondary);
   margin-bottom: 1rem;
   max-width: 72ch;
+  font-size: 0.97rem;
+  line-height: 1.85;
 }
 
 a {
@@ -152,7 +154,7 @@ ul li {
 }
 
 .media-grid figure:hover {
-  border-color: rgba(0, 212, 255, 0.25);
+  border-color: rgba(0, 212, 255, 0.3);
 }
 
 .media-grid img {
@@ -247,7 +249,7 @@ ul.code-grid li a::before, ul.code li a::before {
   color: var(--accent);
 }
 
-/* STANDALONE IMAGES outside media-grid */
+/* STANDALONE IMAGES */
 section > img {
   width: 100%;
   max-width: 480px;
