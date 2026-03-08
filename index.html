@@ -7,7 +7,25 @@
     <title>Ben Spiegler | Engineering Portfolio</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-   
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; line-height: 1.6; background: #f4f4f4; color: #333; }
+        nav { background: #111; color: white; display: flex; justify-content: center; padding: 15px; position: sticky; top: 0; z-index: 1000; }
+        nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: bold; }
+        nav a:hover { color: #00bfff; }
+        section { padding: 60px 20px; max-width: 1000px; margin: auto; background: white; border-radius: 8px; margin-top: 30px; }
+        h1, h2 { margin-bottom: 20px; }
+        h2 { border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+        h3, h4 { margin-top: 20px; margin-bottom: 10px; }
+        ul { margin-left: 20px; margin-bottom: 20px; }
+        .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+        .card { background: #fafafa; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.2s, box-shadow 0.2s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
+        .card img { width: 100%; border-radius: 5px; margin-bottom: 10px; }
+        footer { text-align: center; padding: 20px; background: #111; color: white; margin-top: 40px; }
+        html { scroll-behavior: smooth; }
+        img, video { max-width: 100%; margin-bottom: 20px; border-radius: 5px; }
+
         /* NEW media-grid CSS */
         .media-grid {
             display: flex;
@@ -390,7 +408,5 @@ On a personal level, this project built confidence in the ability to work throug
 Looking ahead, several improvements would strengthen the project further. Adding ventilation holes around the BME280 sensor would allow better airflow and improve measurement accuracy, as heat from the enclosed electronics was observed to raise the temperature reading noticeably after extended use. Tighter enclosure dimensions would reduce movement of the display. The display could also be improved by making it more visually appealing. There is unused space on the screen that could be filled with larger text and more visually refined colors. Additionally if this project wanted to be mass produced 3d printing settings could be improved to improve the cost and time efficiency.
 
     </p>
-
-
 
 
